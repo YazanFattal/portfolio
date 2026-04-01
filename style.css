@@ -1,0 +1,233 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    margin:0;
+    background:#f4f4f4;
+    overflow-x:hidden;
+}
+
+header{
+    background:#333;
+    color:white;
+    text-align:center;
+    padding:40px;
+}
+
+section{
+    padding:40px;
+}
+
+.project-card{
+    background:white;
+    padding:20px;
+    width:300px;
+    border-radius:10px;
+}
+
+.project-logo{
+    width:120px;
+    cursor:pointer;
+}
+
+.profile-pic{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-top:40px;
+}
+
+#contact{
+    text-align:center;
+    padding:60px;
+    background:#f9f9f9;
+}
+
+.contact-container{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.contact-card{
+    background:white;
+    padding:25px;
+    width:200px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.contact-card:hover{
+    transform:translateY(-5px);
+}
+
+nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    background:#333;
+    padding:15px;
+    z-index:1000;
+}
+
+nav ul{
+    display:flex;
+    justify-content:center;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+nav li{
+    margin:0 20px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+nav a:hover{
+    color:#ff6b6b;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+.fade-in{
+    opacity:0;
+    transform:translateY(40px);
+    transition:all 1s ease;
+}
+
+.fade-in.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+#about{
+    padding:100px 20px;
+    text-align:center;
+}
+
+/* ---------- HORIZONTAL JOURNEY ---------- */
+
+.timeline{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:40px;
+    margin-top:60px;
+    flex-wrap:wrap;
+    position:relative;
+}
+
+/* horizontal line */
+.timeline::before{
+    content:"";
+    position:absolute;
+    top:40px;
+    left:10%;
+    width:80%;
+    height:4px;
+    background:#ff6b6b;
+    z-index:0;
+}
+
+/* journey cards */
+.timeline-item{
+    background:white;
+    padding:25px;
+    width:220px;
+    border-radius:12px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.08);
+    text-align:center;
+    position:relative;
+    z-index:1;
+}
+
+/* connector dot */
+.timeline-item::before{
+    content:"";
+    position:absolute;
+    top:-18px;
+    left:50%;
+    transform:translateX(-50%);
+    width:16px;
+    height:16px;
+    background:#ff6b6b;
+    border-radius:50%;
+}
+
+/* ---------- DIVIDER ---------- */
+
+.section-divider{
+    width:80%;
+    height:2px;
+    background:linear-gradient(to right, transparent, #ff6b6b, transparent);
+    margin:80px auto;
+}
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width:768px){
+
+.timeline{
+flex-direction:column;
+align-items:center;
+}
+
+.timeline::before{
+display:none;
+}
+
+nav ul{
+flex-direction:column;
+gap:10px;
+}
+
+.project-card{
+width:90%;
+margin:auto;
+}
+
+.contact-container{
+flex-direction:column;
+align-items:center;
+}
+
+.contact-card{
+width:80%;
+}
+
+}
+
+img{
+max-width:100%;
+height:auto;
+}
+
+@media (max-width:1024px){
+
+.timeline{
+flex-direction:column;
+align-items:center;
+}
+
+.timeline::before{
+display:none;
+}
+
+}
+
+.projects-container{
+display:flex;
+justify-content:center;
+gap:40px;
+flex-wrap:wrap;
+margin-top:40px;
+}
