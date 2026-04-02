@@ -10,10 +10,12 @@ header{
     color:white;
     text-align:center;
     padding:40px;
+    padding-top:120px;
+    padding-bottom:40px; 
 }
 
 section{
-    padding:40px;
+    padding:60px 20px;
 }
 
 .project-card{
@@ -38,7 +40,7 @@ section{
 
 #contact{
     text-align:center;
-    padding:60px;
+    padding:40px 20px;
     background:#f9f9f9;
 }
 
@@ -110,7 +112,7 @@ html{
 }
 
 #about{
-    padding:100px 20px;
+    padding:60px 20px;
     text-align:center;
 }
 
@@ -121,7 +123,7 @@ html{
     justify-content:center;
     align-items:flex-start;
     gap:40px;
-    margin-top:60px;
+    margin-top:40px;
     flex-wrap:wrap;
     position:relative;
 }
@@ -169,7 +171,7 @@ html{
     width:80%;
     height:2px;
     background:linear-gradient(to right, transparent, #ff6b6b, transparent);
-    margin:80px auto;
+    margin:40px auto;
 }
 
 /* ---------- MOBILE ---------- */
@@ -230,4 +232,11 @@ justify-content:center;
 gap:40px;
 flex-wrap:wrap;
 margin-top:40px;
+}
+
+.project-hint{
+    margin-top:10px;
+    font-size:14px;
+    color:#ff6b6b;
+    font-weight:500;
 }
