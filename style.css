@@ -246,22 +246,21 @@ section h2 {
     box-shadow: 0 30px 50px rgba(255, 107, 107, 0.2);
 }
 
-/* Image Container - Light mode specific */
+/* Image Container */
 .project-image {
     width: 100%;
     height: 260px;
     overflow: hidden;
     position: relative;
-    /* Light mode background */
-    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* Dark mode image background */
+/* Dark mode - Lighter background */
 body.dark .project-image {
-    background: linear-gradient(135deg, #2a2a3e 0%, #1a1a2e 100%);
+    background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
 }
 
 .project-image img {
@@ -271,14 +270,17 @@ body.dark .project-image {
     max-height: 80%;
     object-fit: contain;
     transition: transform 0.5s;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+body.dark .project-image img {
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
 .project-card:hover .project-image img {
     transform: scale(1.05);
 }
 
-/* Overlay effect */
 .project-overlay {
     position: absolute;
     bottom: 0;
@@ -307,13 +309,13 @@ body.dark .project-image {
 }
 
 .project-tag {
-    font-size: 12px;
+    font-size: 11px;
     color: var(--text-secondary);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
-/* Contact Section */
+/* Contact Section - FIXED */
 #contact {
     background: var(--bg-secondary);
     text-align: center;
@@ -330,12 +332,16 @@ body.dark .project-image {
 
 .contact-card {
     background: var(--journey-card-bg);
-    padding: 30px;
+    padding: 35px 25px;
     border-radius: 16px;
-    width: 200px;
+    width: 220px;
     transition: all 0.3s;
     border: 1px solid var(--border-color);
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
 }
 
 .contact-card:hover {
@@ -343,17 +349,29 @@ body.dark .project-image {
     border-color: #ff6b6b;
 }
 
-.contact-card h3 {
-    font-size: 32px;
-    margin-bottom: 12px;
+.contact-icon {
+    font-size: 40px;
+    margin-bottom: 5px;
 }
 
-.contact-card a, .contact-card p {
+.contact-card a {
     color: var(--text-secondary);
     text-decoration: none;
     font-size: 14px;
     transition: color 0.3s;
-    word-break: break-word;
+    word-break: keep-all;
+    white-space: nowrap;
+}
+
+/* Email specific styling */
+.contact-email {
+    font-size: 13px !important;
+    letter-spacing: -0.2px;
+}
+
+.contact-card p {
+    color: var(--text-secondary);
+    font-size: 14px;
 }
 
 .contact-card a:hover {
@@ -365,6 +383,41 @@ body.dark .project-image {
     margin-bottom: 40px;
     color: var(--text-secondary);
     font-size: 18px;
+}
+
+/* Mobile responsive for contact cards */
+@media (max-width: 768px) {
+    .contact-card {
+        width: 180px;
+        padding: 25px 15px;
+    }
+    
+    .contact-email {
+        font-size: 11px !important;
+        white-space: normal;
+        word-break: break-all;
+    }
+    
+    .contact-icon {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-card {
+        width: 80%;
+        max-width: 280px;
+    }
+    
+    .contact-email {
+        white-space: normal;
+        word-break: break-all;
+    }
 }
 
 /* Divider */
@@ -418,20 +471,12 @@ html {
         max-width: 350px;
     }
     
-    .contact-card {
-        width: 45%;
-    }
-    
     .journey-card {
         width: 180px;
     }
 }
 
 @media (max-width: 480px) {
-    .contact-card {
-        width: 90%;
-    }
-    
     .journey-card {
         width: 90%;
     }
