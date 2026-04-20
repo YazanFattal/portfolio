@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yazan Fattal | Media Design Portfolio</title>
@@ -11,24 +11,32 @@
 <body>
 
 <nav>
-    <ul>
-        <li><a href="#about">Journey</a></li>
-        <li><a href="#projects">Work</a></li>
-        <li><a href="#contact">Connect</a></li>
-    </ul>
-    <!-- Theme Toggle Button -->
-    <div class="theme-toggle">
-        <button id="theme-switch" class="theme-btn">
-            <span class="light-icon">☀️</span>
-            <span class="dark-icon">🌙</span>
-        </button>
+    <div class="nav-container">
+        <div class="logo">YF</div>
+        <ul>
+            <li><a href="#about">Journey</a></li>
+            <li><a href="#projects">Work</a></li>
+            <li><a href="#contact">Connect</a></li>
+        </ul>
+        <div class="theme-toggle">
+            <button id="theme-switch" class="theme-btn">
+                <span class="light-icon">☀️</span>
+                <span class="dark-icon">🌙</span>
+            </button>
+        </div>
     </div>
 </nav>
 
 <header>
-    <img src="./me.JPG" alt="Yazan Fattal" class="profile-pic">
-    <h1>Yazan Fattal</h1>
-    <p>Media Design & ICT Student</p>
+    <div class="header-content">
+        <div class="profile-wrapper">
+            <img src="./me.JPG" alt="Yazan Fattal" class="profile-pic">
+            <div class="profile-glow"></div>
+        </div>
+        <h1>Yazan Fattal</h1>
+        <p>Media Design & ICT Student</p>
+        <div class="header-badge">Available for internships</div>
+    </div>
 </header>
 
 <section id="about">
@@ -36,86 +44,99 @@
     <div class="journey-grid">
         <div class="journey-card fade-in">
             <div class="journey-flag">🇸🇾</div>
-            <h3>Damascus, Syria</h3>
-            <p>Where my story began</p>
+            <h3>Damascus</h3>
+            <p>Born & raised</p>
         </div>
         <div class="journey-card fade-in">
             <div class="journey-flag">🇸🇦</div>
-            <h3>Jeddah, Saudi Arabia</h3>
-            <p>Multicultural upbringing</p>
+            <h3>Jeddah</h3>
+            <p>Multicultural growth</p>
         </div>
         <div class="journey-card fade-in">
             <div class="journey-flag">🇫🇷</div>
-            <h3>Valenciennes, France</h3>
-            <p>High school & European roots</p>
+            <h3>France</h3>
+            <p>High school</p>
         </div>
         <div class="journey-card fade-in">
             <div class="journey-flag">🇳🇱</div>
-            <h3>Eindhoven, Netherlands</h3>
-            <p>Design & ICT at Fontys</p>
+            <h3>Eindhoven</h3>
+            <p>Design & ICT</p>
         </div>
     </div>
 </section>
 
-<div class="section-divider"></div>
-
 <section id="projects">
     <h2>Featured Work</h2>
-    <div class="projects-container">
+    <p class="section-subtitle">Click on any project to explore →</p>
+    
+    <div class="projects-grid">
         
         <!-- Project 1 - CROW STUDIO -->
         <div class="project-card fade-in" onclick="window.open('https://portfolio.drieam.app/s/GuxUr36X/LYbQ5qBjPDo9ygVNyaE14KZe', '_blank')">
-            <div class="project-image">
-                <img src="logo.svg" alt="Crow Studio Project">
-                <div class="project-overlay">
-                    <span class="project-tag">View Project →</span>
+            <div class="card-image">
+                <img src="logo.svg" alt="Crow Studio">
+                <div class="image-overlay">
+                    <span class="view-project">View Project →</span>
                 </div>
             </div>
-            <div class="project-info">
+            <div class="card-content">
                 <h3>Crow Studio</h3>
-                <span class="project-tag">UX/UI • SOCIAL DESIGN</span>
+                <div class="tags">
+                    <span>UX/UI</span>
+                    <span>Social Design</span>
+                </div>
             </div>
         </div>
 
         <!-- Project 2 - SMART MOBILE -->
         <div class="project-card fade-in" onclick="window.open('https://portfolio.drieam.app/s/GuxUr36X/JVrign45XBMhA39RpCg93KWe', '_blank')">
-            <div class="project-image">
-                <img src="fontys.jpg" alt="Smart Mobile Projects">
-                <div class="project-overlay">
-                    <span class="project-tag">View Project →</span>
+            <div class="card-image">
+                <img src="fontys.jpg" alt="Smart Mobile">
+                <div class="image-overlay">
+                    <span class="view-project">View Project →</span>
                 </div>
             </div>
-            <div class="project-info">
+            <div class="card-content">
                 <h3>Smart Mobile</h3>
-                <span class="project-tag">KOTLIN • ANDROID • UX/UI</span>
+                <div class="tags">
+                    <span>Kotlin</span>
+                    <span>Android</span>
+                    <span>UX/UI</span>
+                </div>
             </div>
         </div>
 
         <!-- Project 3 - CATCHEE -->
         <div class="project-card fade-in" onclick="window.open('https://portfolio.drieam.app/s/GuxUr36X/wFQfCpUkeeqThXSQQWzZgbz7', '_blank')">
-            <div class="project-image">
-                <img src="catchee.png" alt="Catchee Project">
-                <div class="project-overlay">
-                    <span class="project-tag">View Project →</span>
+            <div class="card-image">
+                <img src="catchee.png" alt="Catchee">
+                <div class="image-overlay">
+                    <span class="view-project">View Project →</span>
                 </div>
             </div>
-            <div class="project-info">
+            <div class="card-content">
                 <h3>Catchee</h3>
-                <span class="project-tag">SOCIAL IMPACT • APP DESIGN</span>
+                <div class="tags">
+                    <span>Social Impact</span>
+                    <span>App Design</span>
+                </div>
             </div>
         </div>
 
         <!-- Project 4 - TOMRA -->
         <div class="project-card fade-in" onclick="window.open('https://portfolio.drieam.app/s/GuxUr36X/8whNgDeemrG7FMAydgWiW9MG', '_blank')">
-            <div class="project-image">
-                <img src="tomra.jpeg" alt="Tomra Project">
-                <div class="project-overlay">
-                    <span class="project-tag">View Project →</span>
+            <div class="card-image">
+                <img src="tomra.jpeg" alt="Tomra">
+                <div class="image-overlay">
+                    <span class="view-project">View Project →</span>
                 </div>
             </div>
-            <div class="project-info">
+            <div class="card-content">
                 <h3>Tomra</h3>
-                <span class="project-tag">SMART DISASSEMBLY • SUSTAINABILITY</span>
+                <div class="tags">
+                    <span>Sustainability</span>
+                    <span>Smart Disassembly</span>
+                </div>
             </div>
         </div>
     </div>
@@ -123,11 +144,11 @@
 
 <section id="contact">
     <h2>Let's Connect</h2>
-    <p class="contact-text">Have a project idea or just want to say hi? I'd love to hear from you.</p>
-    <div class="contact-container">
+    <p class="section-subtitle">Have a project idea? I'd love to hear from you.</p>
+    <div class="contact-grid">
         <div class="contact-card fade-in">
             <div class="contact-icon">📧</div>
-            <a href="mailto:yazanfattal19@gmail.com" class="contact-email">yazanfattal19@gmail.com</a>
+            <a href="mailto:yazanfattal19@gmail.com">yazanfattal19@gmail.com</a>
         </div>
         <div class="contact-card fade-in">
             <div class="contact-icon">📍</div>
