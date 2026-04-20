@@ -393,8 +393,8 @@ body.dark .card-image {
 
 .contact-card {
     background: var(--journey-card-bg);
-    padding: 35px 25px;
-    border-radius: 16px;
+    padding: 35px 20px;
+    border-radius: 20px;
     width: 220px;
     transition: all 0.3s;
     border: 1px solid var(--border-color);
@@ -402,7 +402,7 @@ body.dark .card-image {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    justify-content: center;
 }
 
 .contact-card:hover {
