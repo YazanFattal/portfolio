@@ -30,3 +30,14 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 fadeElements.forEach(el => observer.observe(el));
+
+// Play button functionality (for future video implementation)
+const playButtons = document.querySelectorAll('.play-button');
+playButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        const container = this.closest('.video-container');
+        const img = container.querySelector('.project-video-placeholder');
+        // Here you can replace with actual video embed
+        alert('Video demo will play here. Replace with actual video file or YouTube embed.');
+    });
+});
