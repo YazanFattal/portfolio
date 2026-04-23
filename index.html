@@ -74,9 +74,16 @@
         <div class="project-number">01</div>
         <div class="project-content">
             <div class="project-visual">
-                <div class="video-container">
-                    <img src="logo.svg" alt="Crow Studio Project Demo" class="project-video-placeholder">
-                    <div class="play-button">▶</div>
+                <div class="video-link-wrapper">
+                    <a href="#" class="video-link video-coming-soon">
+                        <div class="video-thumbnail">
+                            <img src="logo.svg" alt="Crow Studio" class="thumbnail-img" onerror="this.src='https://placehold.co/600x400/ffffff/ff6b6b?text=Crow+Studio'">
+                            <div class="play-overlay">
+                                <div class="play-button">▶</div>
+                            </div>
+                            <div class="coming-soon-badge">📹 Video Coming Soon</div>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="project-details">
@@ -101,6 +108,10 @@
                     <span>🤝 Small group activities</span>
                     <span>📱 Intuitive interface</span>
                 </div>
+                <button class="read-more-btn" onclick="openProjectModal('crow-studio')">
+                    📄 Read Full Case Study
+                    <span class="arrow">→</span>
+                </button>
             </div>
         </div>
     </div>
@@ -110,9 +121,16 @@
         <div class="project-number">02</div>
         <div class="project-content">
             <div class="project-visual">
-                <div class="video-container">
-                    <img src="fontys.jpg" alt="Smart Mobile Project Demo" class="project-video-placeholder">
-                    <div class="play-button">▶</div>
+                <div class="video-link-wrapper">
+                    <a href="#" class="video-link video-coming-soon">
+                        <div class="video-thumbnail">
+                            <img src="fontys.jpg" alt="Smart Mobile" class="thumbnail-img" onerror="this.src='https://placehold.co/600x400/ffffff/ff6b6b?text=Smart+Mobile'">
+                            <div class="play-overlay">
+                                <div class="play-button">▶</div>
+                            </div>
+                            <div class="coming-soon-badge">📹 Video Coming Soon</div>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="project-details">
@@ -137,6 +155,10 @@
                     <span>📱 Responsive design</span>
                     <span>🎨 Material Design</span>
                 </div>
+                <button class="read-more-btn" onclick="openProjectModal('smart-mobile')">
+                    📄 Read Full Case Study
+                    <span class="arrow">→</span>
+                </button>
             </div>
         </div>
     </div>
@@ -146,9 +168,16 @@
         <div class="project-number">03</div>
         <div class="project-content">
             <div class="project-visual">
-                <div class="video-container">
-                    <img src="catchee.png" alt="Catchee Project Demo" class="project-video-placeholder">
-                    <div class="play-button">▶</div>
+                <div class="video-link-wrapper">
+                    <a href="#" class="video-link video-coming-soon">
+                        <div class="video-thumbnail">
+                            <img src="catchee.png" alt="Catchee" class="thumbnail-img" onerror="this.src='https://placehold.co/600x400/ffffff/ff6b6b?text=Catchee'">
+                            <div class="play-overlay">
+                                <div class="play-button">▶</div>
+                            </div>
+                            <div class="coming-soon-badge">📹 Video Coming Soon</div>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="project-details">
@@ -173,6 +202,10 @@
                     <span>🤝 Low-pressure connections</span>
                     <span>📱 Community focused</span>
                 </div>
+                <button class="read-more-btn" onclick="openProjectModal('catchee')">
+                    📄 Read Full Case Study
+                    <span class="arrow">→</span>
+                </button>
             </div>
         </div>
     </div>
@@ -182,9 +215,16 @@
         <div class="project-number">04</div>
         <div class="project-content">
             <div class="project-visual">
-                <div class="video-container">
-                    <img src="tomra.jpeg" alt="Tomra Project Demo" class="project-video-placeholder">
-                    <div class="play-button">▶</div>
+                <div class="video-link-wrapper">
+                    <a href="#" class="video-link video-coming-soon">
+                        <div class="video-thumbnail">
+                            <img src="tomra.jpeg" alt="Tomra" class="thumbnail-img" onerror="this.src='https://placehold.co/600x400/ffffff/ff6b6b?text=Tomra+Sustainability'">
+                            <div class="play-overlay">
+                                <div class="play-button">▶</div>
+                            </div>
+                            <div class="coming-soon-badge">📹 Video Coming Soon</div>
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="project-details">
@@ -209,6 +249,10 @@
                     <span>♻️ Material recovery</span>
                     <span>🔧 Smart disassembly</span>
                 </div>
+                <button class="read-more-btn" onclick="openProjectModal('tomra')">
+                    📄 Read Full Case Study
+                    <span class="arrow">→</span>
+                </button>
             </div>
         </div>
     </div>
@@ -232,6 +276,16 @@
         </div>
     </div>
 </section>
+
+<!-- Modal for Project Details -->
+<div id="projectModal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div id="modal-body">
+            <!-- Dynamic content will be loaded here -->
+        </div>
+    </div>
+</div>
 
 <script src="script.js"></script>
 </body>

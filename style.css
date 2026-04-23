@@ -185,7 +185,7 @@ header p {
 
 /* Sections */
 section {
-    padding: 60px 40px;
+    padding: 50px 40px;
 }
 
 section h2 {
@@ -198,7 +198,7 @@ section h2 {
 .section-subtitle {
     text-align: center;
     color: var(--text-secondary);
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     font-size: 18px;
 }
 
@@ -206,7 +206,7 @@ section h2 {
 #about {
     background: var(--bg-secondary);
     padding-top: 20px;
-    padding-bottom: 60px;
+    padding-bottom: 50px;
 }
 
 .journey-grid {
@@ -221,7 +221,7 @@ section h2 {
 .journey-card {
     background: var(--journey-card-bg);
     backdrop-filter: blur(10px);
-    padding: 35px 25px;
+    padding: 30px 25px;
     border-radius: 20px;
     text-align: center;
     width: 200px;
@@ -230,18 +230,18 @@ section h2 {
 }
 
 .journey-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-5px);
     border-color: #ff6b6b;
 }
 
 .journey-flag {
-    font-size: 52px;
-    margin-bottom: 16px;
+    font-size: 48px;
+    margin-bottom: 12px;
 }
 
 .journey-card h3 {
     font-size: 18px;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     color: #ff6b6b;
 }
 
@@ -250,16 +250,16 @@ section h2 {
     color: var(--text-secondary);
 }
 
-/* Projects Section - DETAILED SHOWCASE */
+/* Projects Section */
 #projects {
     background: var(--bg-primary);
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .project-showcase {
     max-width: 1200px;
-    margin: 0 auto 80px auto;
+    margin: 0 auto 60px auto;
     position: relative;
 }
 
@@ -272,7 +272,7 @@ section h2 {
     font-weight: 800;
     color: var(--border-color);
     position: absolute;
-    top: -30px;
+    top: -35px;
     left: -20px;
     z-index: 0;
     opacity: 0.3;
@@ -281,7 +281,7 @@ section h2 {
 .project-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    gap: 40px;
     background: var(--showcase-bg);
     border-radius: 24px;
     overflow: hidden;
@@ -297,49 +297,83 @@ section h2 {
     box-shadow: var(--shadow-hover);
 }
 
-/* Video/Image Container - FIXED for your images */
+/* Video Container */
 .project-visual {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    min-height: 400px;
+    background: transparent;
+    min-height: 380px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 0;
+    border-radius: 20px;
 }
 
-body.dark .project-visual {
-    background: linear-gradient(135deg, #2a2a3e 0%, #1a1a2e 100%);
-}
-
-.video-container {
+.video-link-wrapper {
     width: 100%;
-    height: 100%;
+}
+
+.video-link {
+    width: 100%;
+    text-decoration: none;
+    display: block;
+    background: transparent;
+}
+
+.video-thumbnail {
     position: relative;
     cursor: pointer;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 16px;
+    transition: transform 0.3s;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* FIXED: Images will now show properly */
-.project-video-placeholder {
-    max-width: 100%;
-    max-height: 350px;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    border-radius: 12px;
+.video-thumbnail:hover {
+    transform: scale(1.02);
 }
 
-.play-button {
+.thumbnail-img {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+    max-width: 85%;
+    max-height: 85%;
+    object-fit: contain;
+    display: block;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+    border-radius: 16px;
+}
+
+.video-thumbnail:hover .play-overlay {
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.play-button {
     width: 70px;
     height: 70px;
-    background: rgba(255, 107, 107, 0.9);
+    background: rgba(255, 107, 107, 0.95);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -348,17 +382,71 @@ body.dark .project-visual {
     font-size: 28px;
     cursor: pointer;
     transition: all 0.3s;
-    opacity: 0.9;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .play-button:hover {
-    transform: translate(-50%, -50%) scale(1.1);
+    transform: scale(1.1);
     background: #ff6b6b;
+}
+
+.coming-soon-badge {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    color: #ff6b6b;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    z-index: 15;
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    letter-spacing: 0.5px;
+}
+
+.video-coming-soon {
+    cursor: pointer;
+}
+
+/* Read More Button */
+.read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.read-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+    gap: 15px;
+}
+
+.read-more-btn .arrow {
+    transition: transform 0.3s;
+}
+
+.read-more-btn:hover .arrow {
+    transform: translateX(5px);
 }
 
 /* Project Details */
 .project-details {
-    padding: 40px 40px 40px 0;
+    padding: 35px 40px 35px 0;
 }
 
 .project-details h3 {
@@ -377,7 +465,7 @@ body.dark .project-visual {
 
 .project-tags span {
     font-size: 12px;
-    padding: 5px 14px;
+    padding: 6px 14px;
     background: var(--journey-card-bg);
     border-radius: 50px;
     color: var(--text-secondary);
@@ -392,7 +480,7 @@ body.dark .project-visual {
 }
 
 .problem, .solution {
-    padding: 15px;
+    padding: 18px;
     border-radius: 12px;
     background: var(--journey-card-bg);
 }
@@ -400,12 +488,12 @@ body.dark .project-visual {
 .problem h4, .solution h4 {
     font-size: 16px;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     color: #ff6b6b;
 }
 
 .problem p, .solution p {
-    font-size: 14px;
+    font-size: 15px;
     line-height: 1.6;
     color: var(--text-secondary);
 }
@@ -419,7 +507,7 @@ body.dark .project-visual {
 
 .project-features span {
     font-size: 13px;
-    padding: 6px 12px;
+    padding: 6px 14px;
     background: rgba(255, 107, 107, 0.1);
     border-radius: 50px;
     color: #ff6b6b;
@@ -429,8 +517,8 @@ body.dark .project-visual {
 #contact {
     background: var(--bg-secondary);
     text-align: center;
-    padding-top: 60px;
-    padding-bottom: 80px;
+    padding-top: 50px;
+    padding-bottom: 70px;
 }
 
 .contact-grid {
@@ -445,7 +533,7 @@ body.dark .project-visual {
 
 .contact-card {
     background: var(--journey-card-bg);
-    padding: 35px 20px;
+    padding: 35px 25px;
     border-radius: 20px;
     width: 220px;
     transition: all 0.3s;
@@ -458,13 +546,13 @@ body.dark .project-visual {
 }
 
 .contact-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-5px);
     border-color: #ff6b6b;
 }
 
 .contact-icon {
-    font-size: 44px;
-    margin-bottom: 16px;
+    font-size: 42px;
+    margin-bottom: 12px;
     display: block;
 }
 
@@ -491,8 +579,145 @@ body.dark .project-visual {
     color: #ff6b6b;
 }
 
-/* Responsive Design */
-@media (max-width: 1000px) {
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: var(--bg-secondary);
+    margin: 5% auto;
+    padding: 0;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 24px;
+    position: relative;
+    animation: slideIn 0.3s ease;
+    max-height: 85vh;
+    overflow-y: auto;
+    border: 1px solid var(--border-color);
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 10;
+}
+
+.close-modal:hover {
+    color: #ff6b6b;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+#modal-body {
+    padding: 40px;
+}
+
+.modal-project-title {
+    font-size: 36px;
+    font-weight: 700;
+    color: #ff6b6b;
+    margin-bottom: 20px;
+}
+
+.modal-section {
+    margin-bottom: 25px;
+}
+
+.modal-section h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.modal-section p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.modal-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.modal-section li {
+    padding: 8px 0;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.modal-section li:before {
+    content: "✨";
+}
+
+.modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.modal-tags span {
+    background: var(--journey-card-bg);
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.modal-video-placeholder {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 16px;
+    padding: 60px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+body.dark .modal-video-placeholder {
+    background: linear-gradient(135deg, #2a2a3e 0%, #1a1a2e 100%);
+}
+
+.modal-video-placeholder p {
+    color: #ff6b6b;
+    font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
     .project-content {
         grid-template-columns: 1fr;
         gap: 0;
@@ -504,16 +729,12 @@ body.dark .project-visual {
     
     .project-number {
         font-size: 60px;
-        top: -20px;
+        top: -25px;
         left: 10px;
     }
     
     .project-visual {
         min-height: 350px;
-    }
-    
-    .project-video-placeholder {
-        max-height: 300px;
     }
 }
 
@@ -533,7 +754,7 @@ body.dark .project-visual {
     }
     
     section {
-        padding: 40px 20px;
+        padding: 35px 20px;
     }
     
     section h2 {
@@ -541,40 +762,58 @@ body.dark .project-visual {
     }
     
     .project-showcase {
-        margin-bottom: 50px;
+        margin-bottom: 45px;
     }
     
     .project-number {
         font-size: 50px;
-        top: -15px;
+        top: -20px;
     }
     
     .project-details h3 {
-        font-size: 24px;
+        font-size: 26px;
     }
     
     .project-visual {
-        min-height: 280px;
-    }
-    
-    .project-video-placeholder {
-        max-height: 250px;
+        min-height: 300px;
     }
     
     .play-button {
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
+        width: 55px;
+        height: 55px;
+        font-size: 22px;
+    }
+    
+    .problem p, .solution p {
+        font-size: 14px;
     }
     
     .contact-card {
-        width: 200px;
+        width: 180px;
         padding: 25px 15px;
     }
     
     .journey-card {
         width: 160px;
         padding: 25px 15px;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+    }
+    
+    #modal-body {
+        padding: 25px;
+    }
+    
+    .modal-project-title {
+        font-size: 28px;
+    }
+    
+    .read-more-btn {
+        padding: 10px 20px;
+        font-size: 13px;
     }
 }
 
@@ -596,12 +835,10 @@ body.dark .project-visual {
         width: calc(50% - 15px);
     }
     
-    .problem-solution {
-        gap: 15px;
-    }
-    
-    .project-video-placeholder {
-        max-height: 200px;
+    .play-button {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
     }
 }
 
