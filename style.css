@@ -7,7 +7,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Light Mode */
@@ -49,9 +49,9 @@ body {
 nav {
     position: fixed;
     top: 0;
-    width: 100%;
+    left: 0;
+    right: 0;
     background: var(--nav-bg);
-    backdrop-filter: blur(10px);
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
     padding: 15px 0;
@@ -82,7 +82,8 @@ nav a {
     color: var(--text-primary);
     text-decoration: none;
     font-weight: 500;
-    transition: color 0.3s;
+    font-size: 16px;
+    transition: color 0.2s;
 }
 
 nav a:hover {
@@ -96,16 +97,15 @@ nav a:hover {
     padding: 8px 16px;
     cursor: pointer;
     font-size: 18px;
-    transition: all 0.3s;
+    transition: transform 0.2s;
 }
 
 .theme-btn:hover {
     transform: scale(1.05);
-    border-color: #ff6b6b;
 }
 
 .light-icon, .dark-icon {
-    transition: opacity 0.3s;
+    transition: opacity 0.2s;
 }
 
 body.dark .light-icon { display: inline-block; }
@@ -126,7 +126,7 @@ header {
 }
 
 .header-content {
-    animation: fadeInUp 1s ease;
+    animation: fadeInUp 0.6s ease;
 }
 
 .profile-wrapper {
@@ -160,7 +160,7 @@ header h1 {
     font-weight: 700;
     margin-top: 24px;
     margin-bottom: 12px;
-    background: linear-gradient(135deg, var(--text-primary), #ff6b6b);
+    background: linear-gradient(90deg, var(--text-primary), #ff6b6b);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -220,12 +220,11 @@ section h2 {
 
 .journey-card {
     background: var(--journey-card-bg);
-    backdrop-filter: blur(10px);
     padding: 30px 25px;
     border-radius: 20px;
     text-align: center;
     width: 200px;
-    transition: all 0.3s;
+    transition: transform 0.2s, border-color 0.2s;
     border: 1px solid var(--border-color);
 }
 
@@ -279,15 +278,14 @@ section h2 {
 }
 
 .project-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    display: flex;
+    flex-wrap: wrap;
     background: var(--showcase-bg);
     border-radius: 24px;
     overflow: hidden;
     border: 1px solid var(--border-color);
     box-shadow: var(--shadow);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.2s, box-shadow 0.2s;
     position: relative;
     z-index: 1;
 }
@@ -297,7 +295,7 @@ section h2 {
     box-shadow: var(--shadow-hover);
 }
 
-/* Video Container */
+/* Video Container - REMOVED heavy filters */
 .project-visual {
     background: transparent;
     min-height: 380px;
@@ -306,6 +304,7 @@ section h2 {
     justify-content: center;
     padding: 0;
     border-radius: 20px;
+    flex: 1;
 }
 
 .video-link-wrapper {
@@ -316,7 +315,6 @@ section h2 {
     width: 100%;
     text-decoration: none;
     display: block;
-    background: transparent;
 }
 
 .video-thumbnail {
@@ -331,7 +329,7 @@ section h2 {
     align-items: center;
     justify-content: center;
     border-radius: 16px;
-    transition: transform 0.3s;
+    transition: transform 0.2s;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
@@ -362,7 +360,7 @@ section h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.3s;
+    transition: background 0.2s;
     border-radius: 16px;
 }
 
@@ -381,7 +379,7 @@ section h2 {
     color: white;
     font-size: 28px;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: transform 0.2s, background 0.2s;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -395,7 +393,6 @@ section h2 {
     bottom: 15px;
     right: 15px;
     background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(5px);
     color: #ff6b6b;
     padding: 6px 12px;
     border-radius: 20px;
@@ -403,50 +400,12 @@ section h2 {
     font-weight: 500;
     z-index: 15;
     border: 1px solid rgba(255, 107, 107, 0.3);
-    letter-spacing: 0.5px;
-}
-
-.video-coming-soon {
-    cursor: pointer;
-}
-
-/* Read More Button */
-.read-more-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 50px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-    margin-top: 20px;
-    width: 100%;
-    justify-content: center;
-    font-family: 'Poppins', sans-serif;
-}
-
-.read-more-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
-    gap: 15px;
-}
-
-.read-more-btn .arrow {
-    transition: transform 0.3s;
-}
-
-.read-more-btn:hover .arrow {
-    transform: translateX(5px);
 }
 
 /* Project Details */
 .project-details {
     padding: 35px 40px 35px 0;
+    flex: 1;
 }
 
 .project-details h3 {
@@ -513,6 +472,41 @@ section h2 {
     color: #ff6b6b;
 }
 
+/* Read More Button - OPTIMIZED */
+.read-more-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.read-more-btn:hover {
+    transform: translateY(-2px);
+    background: #ee5a5a;
+    gap: 15px;
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.read-more-btn .arrow {
+    transition: transform 0.2s;
+}
+
+.read-more-btn:hover .arrow {
+    transform: translateX(5px);
+}
+
 /* Contact Section */
 #contact {
     background: var(--bg-secondary);
@@ -536,7 +530,7 @@ section h2 {
     padding: 35px 25px;
     border-radius: 20px;
     width: 220px;
-    transition: all 0.3s;
+    transition: transform 0.2s, border-color 0.2s;
     border: 1px solid var(--border-color);
     text-align: center;
     display: flex;
@@ -559,8 +553,8 @@ section h2 {
 .contact-card a {
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 12px;
-    transition: color 0.3s;
+    font-size: 14px;
+    transition: color 0.2s;
     display: inline-block;
     text-align: center;
     word-break: break-word;
@@ -579,7 +573,7 @@ section h2 {
     color: #ff6b6b;
 }
 
-/* Modal Styles */
+/* Modal Styles - OPTIMIZED FOR SPEED */
 .modal {
     display: none;
     position: fixed;
@@ -589,8 +583,6 @@ section h2 {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(5px);
-    animation: fadeIn 0.3s ease;
 }
 
 .modal-content {
@@ -601,7 +593,6 @@ section h2 {
     max-width: 800px;
     border-radius: 24px;
     position: relative;
-    animation: slideIn 0.3s ease;
     max-height: 85vh;
     overflow-y: auto;
     border: 1px solid var(--border-color);
@@ -615,28 +606,12 @@ section h2 {
     font-weight: bold;
     color: var(--text-secondary);
     cursor: pointer;
-    transition: color 0.3s;
+    transition: color 0.2s;
     z-index: 10;
 }
 
 .close-modal:hover {
     color: #ff6b6b;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideIn {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
 }
 
 #modal-body {
@@ -700,7 +675,7 @@ section h2 {
 }
 
 .modal-video-placeholder {
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    background: #f0f0f0;
     border-radius: 16px;
     padding: 60px;
     text-align: center;
@@ -708,7 +683,7 @@ section h2 {
 }
 
 body.dark .modal-video-placeholder {
-    background: linear-gradient(135deg, #2a2a3e 0%, #1a1a2e 100%);
+    background: #2a2a3e;
 }
 
 .modal-video-placeholder p {
@@ -719,8 +694,7 @@ body.dark .modal-video-placeholder {
 /* Responsive */
 @media (max-width: 900px) {
     .project-content {
-        grid-template-columns: 1fr;
-        gap: 0;
+        flex-direction: column;
     }
     
     .project-details {
@@ -842,11 +816,11 @@ body.dark .modal-video-placeholder {
     }
 }
 
-/* Animations */
+/* Animations - SIMPLIFIED FOR SPEED */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
@@ -856,8 +830,8 @@ body.dark .modal-video-placeholder {
 
 .fade-in {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .fade-in.show {

@@ -19,24 +19,34 @@ if (themeSwitch) {
     themeSwitch.addEventListener('click', toggleTheme);
 }
 
-// Fade-in animation
+// Fade-in animation - OPTIMIZED
 const fadeElements = document.querySelectorAll('.fade-in');
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('show');
+            observer.unobserve(entry.target); // Stop observing once shown
         }
     });
-}, { threshold: 0.1 });
+}, { threshold: 0.1, rootMargin: '50px' }); // Faster loading
 
 fadeElements.forEach(el => observer.observe(el));
 
-// Modal functionality
+// Modal functionality - OPTIMIZED
 const modal = document.getElementById('projectModal');
 const closeModal = document.querySelector('.close-modal');
 
+// Pre-load modal content cache
+const modalCache = {};
+
 function openProjectModal(projectId) {
-    const modalBody = document.getElementById('modal-body');
+    // Check cache first
+    if (modalCache[projectId]) {
+        document.getElementById('modal-body').innerHTML = modalCache[projectId];
+        modal.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+        return;
+    }
     
     const projectDetails = {
         'crow-studio': {
@@ -84,7 +94,7 @@ function openProjectModal(projectId) {
     const project = projectDetails[projectId];
     
     if (project) {
-        modalBody.innerHTML = `
+        const modalHTML = `
             <h2 class="modal-project-title">${project.title}</h2>
             <div class="modal-tags">
                 ${project.tags.map(tag => `<span>${tag}</span>`).join('')}
@@ -128,6 +138,9 @@ function openProjectModal(projectId) {
             </div>
         `;
         
+        // Cache the modal content
+        modalCache[projectId] = modalHTML;
+        document.getElementById('modal-body').innerHTML = modalHTML;
         modal.style.display = 'block';
         document.body.style.overflow = 'hidden';
     }
