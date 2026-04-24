@@ -19,28 +19,25 @@ if (themeSwitch) {
     themeSwitch.addEventListener('click', toggleTheme);
 }
 
-// Fade-in animation - OPTIMIZED
+// Fade-in animation
 const fadeElements = document.querySelectorAll('.fade-in');
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('show');
-            observer.unobserve(entry.target); // Stop observing once shown
+            observer.unobserve(entry.target);
         }
     });
-}, { threshold: 0.1, rootMargin: '50px' }); // Faster loading
+}, { threshold: 0.1, rootMargin: '50px' });
 
 fadeElements.forEach(el => observer.observe(el));
 
-// Modal functionality - OPTIMIZED
+// Modal functionality
 const modal = document.getElementById('projectModal');
 const closeModal = document.querySelector('.close-modal');
-
-// Pre-load modal content cache
 const modalCache = {};
 
 function openProjectModal(projectId) {
-    // Check cache first
     if (modalCache[projectId]) {
         document.getElementById('modal-body').innerHTML = modalCache[projectId];
         modal.style.display = 'block';
@@ -50,13 +47,13 @@ function openProjectModal(projectId) {
     
     const projectDetails = {
         'crow-studio': {
-            title: 'Crow Studio',
-            tags: ['UX/UI Design', 'Social Design', 'App Development'],
-            fullDescription: 'Crow Studio is a comprehensive social platform designed to combat loneliness through meaningful connections. The project involved extensive user research, prototyping, and user testing to create an intuitive interface that encourages genuine interactions.',
-            challenges: 'The main challenge was designing a system that balances algorithmic matching with human curation to ensure quality connections.',
-            outcomes: 'Successfully created a prototype that received positive feedback from test users, with 85% reporting feeling more connected to their community.',
-            technologies: ['Figma', 'React Native', 'Firebase', 'Node.js'],
-            timeline: '4 months (Semester 3)',
+            title: 'Crow Studio - Kauwe Bende',
+            tags: ['Game Design', 'Social Connection', 'Card Game', 'Self-Reflection'],
+            fullDescription: 'Kauwe Bende is an innovative card game designed to combat loneliness and foster meaningful connections. Inspired by the familiar mechanics of UNO, this game adds a unique twist - each card features thoughtful questions that encourage players to reflect on themselves and share personal experiences with others.',
+            challenges: 'The main challenge was designing questions that are deep enough to create meaningful connections but not too overwhelming or uncomfortable for players. Balancing fun gameplay with meaningful interaction was key.',
+            outcomes: 'Successfully created a prototype that received positive feedback from test players. Users reported feeling more connected to others after playing and appreciated the safe space created for sharing.',
+            technologies: ['Card Game Design', 'User Research', 'Playtesting', 'Graphic Design'],
+            timeline: '3 months (Semester 3)',
             team: '4 team members'
         },
         'smart-mobile': {
@@ -138,7 +135,6 @@ function openProjectModal(projectId) {
             </div>
         `;
         
-        // Cache the modal content
         modalCache[projectId] = modalHTML;
         document.getElementById('modal-body').innerHTML = modalHTML;
         modal.style.display = 'block';

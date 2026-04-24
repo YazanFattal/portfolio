@@ -295,7 +295,7 @@ section h2 {
     box-shadow: var(--shadow-hover);
 }
 
-/* Video Container - REMOVED heavy filters */
+/* Video Container */
 .project-visual {
     background: transparent;
     min-height: 380px;
@@ -472,7 +472,7 @@ section h2 {
     color: #ff6b6b;
 }
 
-/* Read More Button - OPTIMIZED */
+/* Read More Button */
 .read-more-btn {
     display: inline-flex;
     align-items: center;
@@ -504,6 +504,41 @@ section h2 {
 }
 
 .read-more-btn:hover .arrow {
+    transform: translateX(5px);
+}
+
+/* External Link Button - Drieam Portfolio */
+.external-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 10px;
+    width: 100%;
+    justify-content: center;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+.external-link-btn:hover {
+    border-color: #ff6b6b;
+    color: #ff6b6b;
+    transform: translateY(-2px);
+}
+
+.external-link-btn .arrow {
+    transition: transform 0.2s;
+}
+
+.external-link-btn:hover .arrow {
     transform: translateX(5px);
 }
 
@@ -553,7 +588,7 @@ section h2 {
 .contact-card a {
     color: var(--text-secondary);
     text-decoration: none;
-    font-size: 14px;
+    font-size: 12px;
     transition: color 0.2s;
     display: inline-block;
     text-align: center;
@@ -573,7 +608,7 @@ section h2 {
     color: #ff6b6b;
 }
 
-/* Modal Styles - OPTIMIZED FOR SPEED */
+/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
@@ -785,7 +820,7 @@ body.dark .modal-video-placeholder {
         font-size: 28px;
     }
     
-    .read-more-btn {
+    .read-more-btn, .external-link-btn {
         padding: 10px 20px;
         font-size: 13px;
     }
@@ -816,7 +851,7 @@ body.dark .modal-video-placeholder {
     }
 }
 
-/* Animations - SIMPLIFIED FOR SPEED */
+/* Animations */
 @keyframes fadeInUp {
     from {
         opacity: 0;
