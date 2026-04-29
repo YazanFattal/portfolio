@@ -198,3 +198,24 @@ document.addEventListener('DOMContentLoaded', function() {
     initVideoPlayers();
 });
 
+// Game embed functions
+function showGame() {
+    const preview = document.getElementById('gamePreview');
+    const gameFrame = document.getElementById('gameFrame');
+    
+    if (preview && gameFrame) {
+        preview.style.display = 'none';
+        gameFrame.style.display = 'block';
+    }
+}
+
+function hideGame() {
+    const preview = document.getElementById('gamePreview');
+    const gameFrame = document.getElementById('gameFrame');
+    
+    if (preview && gameFrame) {
+        gameFrame.style.display = 'none';
+        preview.style.display = 'flex';
+    }
+}
+

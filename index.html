@@ -69,58 +69,75 @@
     <h2>Featured Work</h2>
     <p class="section-subtitle">Four projects. Four solutions. One passion for design.</p>
     
-    <!-- PROJECT 1 - CROW STUDIO (YouTube) -->
-    <div class="project-showcase fade-in">
-        <div class="project-number">01</div>
-        <div class="project-content">
-            <div class="project-visual">
-                <a href="https://www.youtube.com/watch?v=NYifCcKBmeU" target="_blank" class="video-link">
-                    <div class="video-thumbnail custom-thumbnail crow-thumbnail">
-                        <div class="thumbnail-content">
-                            <div class="thumbnail-emoji">🎴</div>
-                            <div class="thumbnail-title">Kauwe Bende</div>
-                            <div class="thumbnail-subtitle">Card Game Demo</div>
-                        </div>
-                        <div class="play-overlay">
-                            <div class="play-button">▶</div>
-                        </div>
-                        <div class="video-badge">🎬 Watch on YouTube</div>
-                    </div>
+    <!-- PROJECT 1 - CROW STUDIO with Corner YouTube + Full Game Launch -->
+<div class="project-showcase fade-in">
+    <div class="project-number">01</div>
+    <div class="project-content" style="flex-direction: column;">
+        
+        <!-- Main Game Launch Area -->
+        <div class="project-visual" style="width: 100%; position: relative;">
+            <!-- YouTube Thumbnail in Corner -->
+            <a href="https://www.youtube.com/watch?v=NYifCcKBmeU" target="_blank" class="corner-youtube-btn">
+                <div class="corner-thumbnail">
+                    <span class="corner-play-icon">▶</span>
+                    <span class="corner-text">Demo Video</span>
+                </div>
+            </a>
+            
+            <!-- Main Game Launch Card -->
+            <div class="game-launch-card">
+                <div class="game-launch-icon">🎴</div>
+                <div class="game-launch-title">Kauwe Bende</div>
+                <div class="game-launch-description">Interactive card game that builds connections through play</div>
+                <a href="https://yazanfattal.github.io/kauweBende/" target="_blank" class="launch-game-btn">
+                    🎮 Launch Full Game →
                 </a>
+                <div class="game-features-list">
+                    <span>🎴 4 Players</span>
+                    <span>⏱️ 20 Min</span>
+                    <span>💬 Icebreaker Questions</span>
+                </div>
             </div>
-            <div class="project-details">
-                <h3>Crow Studio</h3>
-                <div class="project-tags">
-                    <span>Game Design</span>
-                    <span>Social Connection</span>
-                    <span>Card Game</span>
+        </div>
+        
+        <!-- Project Details -->
+        <div class="project-details" style="padding: 35px 0 0 0; width: 100%;">
+            <h3>Crow Studio</h3>
+            <div class="project-tags">
+                <span>Game Design</span>
+                <span>Social Connection</span>
+                <span>Card Game</span>
+            </div>
+            <div class="problem-solution">
+                <div class="problem">
+                    <h4>📋 The Problem</h4>
+                    <p>Loneliness is increasing among young adults who struggle to find meaningful connections. People find it difficult to open up and have deep, reflective conversations with others.</p>
                 </div>
-                <div class="problem-solution">
-                    <div class="problem">
-                        <h4>📋 The Problem</h4>
-                        <p>Loneliness is increasing among young adults who struggle to find meaningful connections. People find it difficult to open up and have deep, reflective conversations with others.</p>
-                    </div>
-                    <div class="solution">
-                        <h4>💡 The Solution</h4>
-                        <p>We created <strong>Kauwe Bende</strong>, a card game with the same concept as UNO but with questions that reflect on yourself. The game encourages players to share personal experiences, thoughts, and feelings in a fun, low-pressure way.</p>
-                    </div>
+                <div class="solution">
+                    <h4>💡 The Solution</h4>
+                    <p>We created <strong>Kauwe Bende</strong>, a card game with the same concept as UNO but with questions that reflect on yourself. The game encourages players to share personal experiences, thoughts, and feelings in a fun, low-pressure way.</p>
                 </div>
-                <div class="project-features">
-                    <span>🎴 UNO-style gameplay</span>
-                    <span>💬 Self-reflection questions</span>
-                    <span>🤝 Builds genuine connections</span>
-                </div>
-                <button class="read-more-btn" onclick="openProjectModal('crow-studio')">
+            </div>
+            <div class="project-features">
+                <span>🎴 UNO-style gameplay</span>
+                <span>💬 Self-reflection questions</span>
+                <span>🤝 Builds genuine connections</span>
+            </div>
+            
+            <!-- Buttons Row -->
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px;">
+                <button class="read-more-btn" onclick="openProjectModal('crow-studio')" style="flex: 1;">
                     📄 Read Full Case Study
                     <span class="arrow">→</span>
                 </button>
-                <a href="https://portfolio.drieam.app/s/GuxUr36X/Yr3yA4AHTFQFQycVVGhYzSnX" target="_blank" class="external-link-btn">
+                <a href="https://portfolio.drieam.app/s/GuxUr36X/Yr3yA4AHTFQFQycVVGhYzSnX" target="_blank" class="external-link-btn" style="flex: 1;">
                     🌐 View on Drieam
                     <span class="arrow">→</span>
                 </a>
             </div>
         </div>
     </div>
+</div>
 
     <!-- PROJECT 2 - SMART MOBILE -->
     <div class="project-showcase fade-in">
