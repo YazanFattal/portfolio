@@ -32,6 +32,48 @@ const observer = new IntersectionObserver((entries) => {
 
 fadeElements.forEach(el => observer.observe(el));
 
+// Video Player Functionality - WORKS!
+function initVideoPlayers() {
+    const videoContainers = document.querySelectorAll('.video-container');
+    
+    videoContainers.forEach(container => {
+        const thumbnail = container.querySelector('.video-thumbnail');
+        const videoPlayer = container.querySelector('.video-player');
+        
+        if (thumbnail && videoPlayer) {
+            // Click on thumbnail to play video
+            thumbnail.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                // Hide thumbnail, show video
+                thumbnail.style.display = 'none';
+                videoPlayer.style.display = 'block';
+                
+                // Play the video
+                videoPlayer.play().catch(error => {
+                    console.log('Playback failed:', error);
+                    // If autoplay fails, show controls so user can click play
+                    videoPlayer.controls = true;
+                });
+            });
+            
+            // When video ends, show thumbnail again
+            videoPlayer.addEventListener('ended', function() {
+                videoPlayer.style.display = 'none';
+                thumbnail.style.display = 'block';
+                videoPlayer.currentTime = 0;
+            });
+            
+            // Optional: If video has error, show thumbnail
+            videoPlayer.addEventListener('error', function(e) {
+                console.log('Video error:', e);
+                videoPlayer.style.display = 'none';
+                thumbnail.style.display = 'block';
+            });
+        }
+    });
+}
+
 // Modal functionality
 const modal = document.getElementById('projectModal');
 const closeModal = document.querySelector('.close-modal');
@@ -51,7 +93,7 @@ function openProjectModal(projectId) {
             tags: ['Game Design', 'Social Connection', 'Card Game', 'Self-Reflection'],
             fullDescription: 'Kauwe Bende is an innovative card game designed to combat loneliness and foster meaningful connections. Inspired by the familiar mechanics of UNO, this game adds a unique twist - each card features thoughtful questions that encourage players to reflect on themselves and share personal experiences with others.',
             challenges: 'The main challenge was designing questions that are deep enough to create meaningful connections but not too overwhelming or uncomfortable for players. Balancing fun gameplay with meaningful interaction was key.',
-            outcomes: 'Successfully created a prototype that received positive feedback from test players. Users reported feeling more connected to others after playing and appreciated the safe space created for sharing.',
+            outcomes: 'Successfully created a prototype that received positive feedback from test players. Users reported feeling more connected to others after playing.',
             technologies: ['Card Game Design', 'User Research', 'Playtesting', 'Graphic Design'],
             timeline: '3 months (Semester 3)',
             team: '4 team members'
@@ -61,7 +103,7 @@ function openProjectModal(projectId) {
             tags: ['Kotlin', 'Android Studio', 'UX/UI'],
             fullDescription: 'A collection of mobile applications developed during the Smart Mobile semester, focusing on creating intuitive and accessible Android apps that solve real-world problems.',
             challenges: 'Implementing complex navigation patterns while maintaining simplicity for users of all technical levels.',
-            outcomes: 'Developed 3 fully functional Android apps with Material Design principles, achieving high usability scores in user testing.',
+            outcomes: 'Developed 3 fully functional Android apps with Material Design principles, achieving high usability scores.',
             technologies: ['Kotlin', 'Android Studio', 'Jetpack Compose', 'Room Database'],
             timeline: '5 months (Semester 4)',
             team: 'Individual projects'
@@ -69,8 +111,8 @@ function openProjectModal(projectId) {
         'catchee': {
             title: 'Catchee',
             tags: ['Social Impact', 'App Design', 'User Research'],
-            fullDescription: 'Catchee is a location-based social discovery app that helps people find local events and activities based on their interests, making it easier to form meaningful connections in their community.',
-            challenges: 'Creating a low-pressure environment that encourages participation without feeling overwhelming or forced.',
+            fullDescription: 'Catchee is a location-based social discovery app that helps people find local events and activities based on their interests, making it easier to form meaningful connections.',
+            challenges: 'Creating a low-pressure environment that encourages participation without feeling overwhelming.',
             outcomes: 'Designed and tested a prototype that showed 72% of users felt more confident attending local events.',
             technologies: ['Figma', 'Flutter', 'Google Maps API', 'Firebase'],
             timeline: '3 months (Semester 3)',
@@ -79,8 +121,8 @@ function openProjectModal(projectId) {
         'tomra': {
             title: 'Tomra',
             tags: ['Sustainability', 'Smart Disassembly', 'Circular Economy'],
-            fullDescription: 'An innovative smart disassembly system for can recycling that automates sorting and material recovery, improving recycling efficiency and reducing waste.',
-            challenges: 'Designing a system that can identify and sort multiple can types while being cost-effective for implementation.',
+            fullDescription: 'An innovative smart disassembly system for can recycling that automates sorting and material recovery, improving recycling efficiency.',
+            challenges: 'Designing a system that can identify and sort multiple can types while being cost-effective.',
             outcomes: 'Created a working prototype that increased sorting accuracy by 40% compared to traditional methods.',
             technologies: ['Computer Vision', 'Arduino', 'Python', 'Mechanical Design'],
             timeline: '4 months (Semester 4)',
@@ -95,11 +137,6 @@ function openProjectModal(projectId) {
             <h2 class="modal-project-title">${project.title}</h2>
             <div class="modal-tags">
                 ${project.tags.map(tag => `<span>${tag}</span>`).join('')}
-            </div>
-            
-            <div class="modal-video-placeholder">
-                <p>🎥 Video demo is currently being prepared</p>
-                <p style="font-size: 12px; margin-top: 10px;">Check back soon for the full video walkthrough!</p>
             </div>
             
             <div class="modal-section">
@@ -156,11 +193,8 @@ window.onclick = function(event) {
     }
 };
 
-// Video coming soon alert
-const videoLinks = document.querySelectorAll('.video-coming-soon');
-videoLinks.forEach(link => {
-    link.addEventListener('click', function(e) {
-        e.preventDefault();
-        alert('🎥 Video demo is currently being recorded!\n\nCheck back soon for the full project walkthrough.');
-    });
+// Initialize everything when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    initVideoPlayers();
 });
+
