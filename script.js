@@ -106,17 +106,17 @@ function openProjectModal(projectId) {
             outcomes: 'Developed 3 fully functional Android apps with Material Design principles, achieving high usability scores.',
             technologies: ['Kotlin', 'Android Studio', 'Jetpack Compose', 'Room Database'],
             timeline: '5 months (Semester 4)',
-            team: 'Individual projects'
+            team: 'Duo projects'
         },
         'catchee': {
-            title: 'Catchee',
-            tags: ['Social Impact', 'App Design', 'User Research'],
-            fullDescription: 'Catchee is a location-based social discovery app that helps people find local events and activities based on their interests, making it easier to form meaningful connections.',
-            challenges: 'Creating a low-pressure environment that encourages participation without feeling overwhelming.',
-            outcomes: 'Designed and tested a prototype that showed 72% of users felt more confident attending local events.',
-            technologies: ['Figma', 'Flutter', 'Google Maps API', 'Firebase'],
+            title: 'Catchee - Speed-meet Q&A Game',
+            tags: ['Social Impact', 'Q&A Game', 'Speed-meet', 'App Design'],
+            fullDescription: 'Catchee is a speed-meet style Q&A game that pairs people for quick, timed conversations with fun and thoughtful questions. Players answer together, share opinions, and discover common interests - all in a fast-paced, engaging format that removes the awkwardness of meeting new people.',
+            challenges: 'Creating a low-pressure environment that encourages participation without feeling overwhelming. Designing questions that work for quick timed sessions while still being meaningful.',
+            outcomes: 'Designed and tested a prototype that showed 72% of users felt more confident starting conversations. Users reported enjoying the fast-paced format.',
+            technologies: ['Figma', 'Flutter', 'Firebase', 'Google Maps API'],
             timeline: '3 months (Semester 3)',
-            team: '3 team members'
+            team: '5 team members'
         },
         'tomra': {
             title: 'Tomra',
