@@ -69,15 +69,53 @@
     <h2>Featured Work</h2>
     <p class="section-subtitle">Four projects. Four solutions. One passion for design.</p>
     
-    <!-- PROJECT 1 - CROW STUDIO with Game on Top -->
+    <!-- PROJECT 1 - CROW STUDIO with Game Underneath -->
 <div class="project-showcase fade-in">
     <div class="project-number">01</div>
     <div class="project-content" style="flex-direction: column;">
         
-        <!-- Game Launch Card - ON TOP -->
-        <div class="game-launch-card">
-            <!-- YouTube Demo Badge inside game card -->
-            <a href="https://www.youtube.com/watch?v=NYifCcKBmeU" target="_blank" class="youtube-badge">
+        <!-- Project Details - TOP SECTION -->
+        <div class="project-details" style="padding: 0 0 20px 0; width: 100%;">
+            <h3>Crow Studio</h3>
+            <div class="project-tags">
+                <span>Game Design</span>
+                <span>Social Connection</span>
+                <span>Card Game</span>
+            </div>
+            
+            <div class="problem-solution">
+                <div class="problem">
+                    <h4>📋 The Problem</h4>
+                    <p>Loneliness is increasing among young adults who struggle to find meaningful connections. People find it difficult to open up and have deep, reflective conversations with others.</p>
+                </div>
+                <div class="solution">
+                    <h4>💡 The Solution</h4>
+                    <p>We created <strong>Kauwe Bende</strong>, a card game with the same concept as UNO but with questions that reflect on yourself. The game encourages players to share personal experiences, thoughts, and feelings in a fun, low-pressure way.</p>
+                </div>
+            </div>
+            
+            <div class="project-features">
+                <span>🎴 UNO-style gameplay</span>
+                <span>💬 Self-reflection questions</span>
+                <span>🤝 Builds genuine connections</span>
+            </div>
+            
+            <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px;">
+                <button class="read-more-btn" onclick="openProjectModal('crow-studio')" style="flex: 1;">
+                    📄 Read Full Case Study
+                    <span class="arrow">→</span>
+                </button>
+                <a href="https://portfolio.drieam.app/s/GuxUr36X/Yr3yA4AHTFQFQycVVGhYzSnX" target="_blank" class="external-link-btn" style="flex: 1;">
+                    🌐 View on Drieam
+                    <span class="arrow">→</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Game Launch Card - BOTTOM SECTION (with YouTube button INSIDE) -->
+        <div class="game-launch-card" style="margin-top: 20px; position: relative;">
+            <!-- YouTube Demo Button - INSIDE the game card (top-right corner) -->
+            <a href="https://www.youtube.com/watch?v=NYifCcKBmeU" target="_blank" class="youtube-badge game-youtube-badge">
                 <span class="youtube-badge-icon">▶</span>
                 <span>Watch Demo Video</span>
             </a>
@@ -106,43 +144,6 @@
             </a>
             
             <p class="game-note">Opens in new tab · Full screen experience · No download required</p>
-        </div>
-
-        
-        <!-- Project Details - BELOW the game -->
-        <div class="project-details" style="padding: 30px 0 0 0; width: 100%;">
-            <h3>Crow Studio</h3>
-            <div class="project-tags">
-                <span>Game Design</span>
-                <span>Social Connection</span>
-                <span>Card Game</span>
-            </div>
-            <div class="problem-solution">
-                <div class="problem">
-                    <h4>📋 The Problem</h4>
-                    <p>Loneliness is increasing among young adults who struggle to find meaningful connections. People find it difficult to open up and have deep, reflective conversations with others.</p>
-                </div>
-                <div class="solution">
-                    <h4>💡 The Solution</h4>
-                    <p>We created <strong>Kauwe Bende</strong>, a card game with the same concept as UNO but with questions that reflect on yourself. The game encourages players to share personal experiences, thoughts, and feelings in a fun, low-pressure way.</p>
-                </div>
-            </div>
-            <div class="project-features">
-                <span>🎴 UNO-style gameplay</span>
-                <span>💬 Self-reflection questions</span>
-                <span>🤝 Builds genuine connections</span>
-            </div>
-            
-            <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px;">
-                <button class="read-more-btn" onclick="openProjectModal('crow-studio')" style="flex: 1;">
-                    📄 Read Full Case Study
-                    <span class="arrow">→</span>
-                </button>
-                <a href="https://portfolio.drieam.app/s/GuxUr36X/Yr3yA4AHTFQFQycVVGhYzSnX" target="_blank" class="external-link-btn" style="flex: 1;">
-                    🌐 View on Drieam
-                    <span class="arrow">→</span>
-                </a>
-            </div>
         </div>
     </div>
 </div>
@@ -209,7 +210,7 @@
                         <span>Education</span>
                     </div>
                     <p class="case-description-full">An app that teaches users how to plant and care for trees, promoting green living and environmental sustainability.</p>
-                    <a href="#" class="case-video-link" onclick="alert('🎥 Plant Tree video coming soon! Check back for the demo.'); return false;">
+                    <a href="https://www.youtube.com/shorts/S9eL20umfic" target="_blank" class="case-video-link">
                         <span class="video-link-icon">▶</span>
                         Watch Demo Video →
                     </a>
@@ -244,59 +245,58 @@
     </div>
 </div>
 
-    <!-- PROJECT 3 - CATCHEE (Speed-meet Q&A Game) -->
-<div class="project-showcase fade-in">
-    <div class="project-number">03</div>
-    <div class="project-content">
-        <div class="project-visual">
-            <a href="videos/catchee-demo.mp4" target="_blank" class="video-link">
-                <div class="video-thumbnail custom-thumbnail catchee-thumbnail">
-                    <div class="thumbnail-content">
-                        <div class="thumbnail-emoji">⚡</div>
-                        <div class="thumbnail-title">Catchee</div>
-                        <div class="thumbnail-subtitle">Speed-meet Q&A Game</div>
+    <!-- PROJECT 3 - CATCHEE -->
+    <div class="project-showcase fade-in">
+        <div class="project-number">03</div>
+        <div class="project-content">
+            <div class="project-visual">
+                <a href="videos/catchee-demo.mp4" target="_blank" class="video-link">
+                    <div class="video-thumbnail custom-thumbnail catchee-thumbnail">
+                        <div class="thumbnail-content">
+                            <div class="thumbnail-emoji">📍</div>
+                            <div class="thumbnail-title">Catchee</div>
+                            <div class="thumbnail-subtitle">Social Connection App</div>
+                        </div>
+                        <div class="play-overlay">
+                            <div class="play-button">▶</div>
+                        </div>
+                        <div class="video-badge">🎬 Watch Demo</div>
                     </div>
-                    <div class="play-overlay">
-                        <div class="play-button">▶</div>
+                </a>
+            </div>
+            <div class="project-details">
+                <h3>Catchee</h3>
+                <div class="project-tags">
+                    <span>Social Impact</span>
+                    <span>App Design</span>
+                    <span>User Research</span>
+                </div>
+                <div class="problem-solution">
+                    <div class="problem">
+                        <h4>📋 The Problem</h4>
+                        <p>People experiencing loneliness lack tools that facilitate meaningful, low-pressure social interactions in their local communities.</p>
                     </div>
-                    <div class="video-badge">🎬 Watch Demo</div>
+                    <div class="solution">
+                        <h4>💡 The Solution</h4>
+                        <p>Catchee connects people through shared interests and location-based suggestions, making it easy to find and join local activities and meet new people.</p>
+                    </div>
                 </div>
-            </a>
-        </div>
-        <div class="project-details">
-            <h3>Catchee</h3>
-            <div class="project-tags">
-                <span>Social Impact</span>
-                <span>Q&A Game</span>
-                <span>Speed-meet</span>
-            </div>
-            <div class="problem-solution">
-                <div class="problem">
-                    <h4>📋 The Problem</h4>
-                    <p>People experiencing loneliness lack tools that facilitate meaningful, low-pressure social interactions. Traditional social apps focus on matching but don't help break the ice or create genuine conversation starters.</p>
+                <div class="project-features">
+                    <span>✨ Location-based matching</span>
+                    <span>🤝 Low-pressure connections</span>
+                    <span>📱 Community focused</span>
                 </div>
-                <div class="solution">
-                    <h4>💡 The Solution</h4>
-                    <p><strong>Catchee</strong> is a speed-meet style Q&A game that pairs people for quick, timed conversations with fun and thoughtful questions. Players answer together, share opinions, and discover common interests - removing the awkwardness of meeting new people.</p>
-                </div>
+                <button class="read-more-btn" onclick="openProjectModal('catchee')">
+                    📄 Read Full Case Study
+                    <span class="arrow">→</span>
+                </button>
+                <a href="https://portfolio.drieam.app/s/GuxUr36X/wFQfCpUkeeqThXSQQWzZgbz7" target="_blank" class="external-link-btn">
+                    🌐 View on Drieam
+                    <span class="arrow">→</span>
+                </a>
             </div>
-            <div class="project-features">
-                <span>⚡ Speed-meet format</span>
-                <span>💬 Curated question bank</span>
-                <span>🎯 Points for matching answers</span>
-                <span>🤝 Low-pressure connections</span>
-            </div>
-            <button class="read-more-btn" onclick="openProjectModal('catchee')">
-                📄 Read Full Case Study
-                <span class="arrow">→</span>
-            </button>
-            <a href="https://portfolio.drieam.app/s/GuxUr36X/wFQfCpUkeeqThXSQQWzZgbz7" target="_blank" class="external-link-btn">
-                🌐 View on Drieam
-                <span class="arrow">→</span>
-            </a>
         </div>
     </div>
-</div>
 
     <!-- PROJECT 4 - TOMRA -->
     <div class="project-showcase fade-in">
