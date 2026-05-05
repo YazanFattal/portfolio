@@ -1,4 +1,3 @@
-// Theme switching
 const themeSwitch = document.getElementById('theme-switch');
 const savedTheme = localStorage.getItem('theme');
 
@@ -10,17 +9,18 @@ if (savedTheme === 'dark') {
     document.body.classList.add('dark');
 }
 
-function toggleTheme() {
-    document.body.classList.toggle('dark');
-    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-}
-
 if (themeSwitch) {
-    themeSwitch.addEventListener('click', toggleTheme);
+    themeSwitch.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        localStorage.setItem(
+            'theme',
+            document.body.classList.contains('dark') ? 'dark' : 'light'
+        );
+    });
 }
 
-// Fade-in animation
 const fadeElements = document.querySelectorAll('.fade-in');
+
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -28,194 +28,138 @@ const observer = new IntersectionObserver((entries) => {
             observer.unobserve(entry.target);
         }
     });
-}, { threshold: 0.1, rootMargin: '50px' });
+}, {
+    threshold: 0.1,
+    rootMargin: '50px'
+});
 
-fadeElements.forEach(el => observer.observe(el));
+fadeElements.forEach(element => observer.observe(element));
 
-// Video Player Functionality - WORKS!
-function initVideoPlayers() {
-    const videoContainers = document.querySelectorAll('.video-container');
-    
-    videoContainers.forEach(container => {
-        const thumbnail = container.querySelector('.video-thumbnail');
-        const videoPlayer = container.querySelector('.video-player');
-        
-        if (thumbnail && videoPlayer) {
-            // Click on thumbnail to play video
-            thumbnail.addEventListener('click', function(e) {
-                e.stopPropagation();
-                
-                // Hide thumbnail, show video
-                thumbnail.style.display = 'none';
-                videoPlayer.style.display = 'block';
-                
-                // Play the video
-                videoPlayer.play().catch(error => {
-                    console.log('Playback failed:', error);
-                    // If autoplay fails, show controls so user can click play
-                    videoPlayer.controls = true;
-                });
-            });
-            
-            // When video ends, show thumbnail again
-            videoPlayer.addEventListener('ended', function() {
-                videoPlayer.style.display = 'none';
-                thumbnail.style.display = 'block';
-                videoPlayer.currentTime = 0;
-            });
-            
-            // Optional: If video has error, show thumbnail
-            videoPlayer.addEventListener('error', function(e) {
-                console.log('Video error:', e);
-                videoPlayer.style.display = 'none';
-                thumbnail.style.display = 'block';
-            });
-        }
-    });
-}
-
-// Modal functionality
 const modal = document.getElementById('projectModal');
 const closeModal = document.querySelector('.close-modal');
-const modalCache = {};
+const modalBody = document.getElementById('modal-body');
 
-function openProjectModal(projectId) {
-    if (modalCache[projectId]) {
-        document.getElementById('modal-body').innerHTML = modalCache[projectId];
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-        return;
-    }
-    
-    const projectDetails = {
-        'crow-studio': {
-            title: 'Crow Studio - Kauwe Bende',
-            tags: ['Game Design', 'Social Connection', 'Card Game', 'Self-Reflection'],
-            fullDescription: 'Kauwe Bende is an innovative card game designed to combat loneliness and foster meaningful connections. Inspired by the familiar mechanics of UNO, this game adds a unique twist - each card features thoughtful questions that encourage players to reflect on themselves and share personal experiences with others.',
-            challenges: 'The main challenge was designing questions that are deep enough to create meaningful connections but not too overwhelming or uncomfortable for players. Balancing fun gameplay with meaningful interaction was key.',
-            outcomes: 'Successfully created a prototype that received positive feedback from test players. Users reported feeling more connected to others after playing.',
-            technologies: ['Card Game Design', 'User Research', 'Playtesting', 'Graphic Design'],
-            timeline: '3 months (Semester 3)',
-            team: '4 team members'
-        },
-        'smart-mobile': {
-            title: 'Smart Mobile',
-            tags: ['Kotlin', 'Android Studio', 'UX/UI'],
-            fullDescription: 'A collection of mobile applications developed during the Smart Mobile semester, focusing on creating intuitive and accessible Android apps that solve real-world problems.',
-            challenges: 'Implementing complex navigation patterns while maintaining simplicity for users of all technical levels.',
-            outcomes: 'Developed 3 fully functional Android apps with Material Design principles, achieving high usability scores.',
-            technologies: ['Kotlin', 'Android Studio', 'Jetpack Compose', 'Room Database'],
-            timeline: '5 months (Semester 4)',
-            team: 'Duo projects'
-        },
-        'catchee': {
-            title: 'Catchee - Speed-meet Q&A Game',
-            tags: ['Social Impact', 'Q&A Game', 'Speed-meet', 'App Design'],
-            fullDescription: 'Catchee is a speed-meet style Q&A game that pairs people for quick, timed conversations with fun and thoughtful questions. Players answer together, share opinions, and discover common interests - all in a fast-paced, engaging format that removes the awkwardness of meeting new people.',
-            challenges: 'Creating a low-pressure environment that encourages participation without feeling overwhelming. Designing questions that work for quick timed sessions while still being meaningful.',
-            outcomes: 'Designed and tested a prototype that showed 72% of users felt more confident starting conversations. Users reported enjoying the fast-paced format.',
-            technologies: ['Figma', 'Flutter', 'Firebase', 'Google Maps API'],
-            timeline: '3 months (Semester 3)',
-            team: '5 team members'
-        },
-        'tomra': {
-            title: 'Tomra',
-            tags: ['Sustainability', 'Smart Disassembly', 'Circular Economy'],
-            fullDescription: 'An innovative smart disassembly system for can recycling that automates sorting and material recovery, improving recycling efficiency.',
-            challenges: 'Designing a system that can identify and sort multiple can types while being cost-effective.',
-            outcomes: 'Created a working prototype that increased sorting accuracy by 40% compared to traditional methods.',
-            technologies: ['Computer Vision', 'Arduino', 'Python', 'Mechanical Design'],
-            timeline: '4 months (Semester 4)',
-            team: '4 team members'
-        }
-    };
-    
-    const project = projectDetails[projectId];
-    
-    if (project) {
-        const modalHTML = `
-            <h2 class="modal-project-title">${project.title}</h2>
-            <div class="modal-tags">
-                ${project.tags.map(tag => `<span>${tag}</span>`).join('')}
-            </div>
-            
-            <div class="modal-section">
-                <h4>📖 Project Overview</h4>
-                <p>${project.fullDescription}</p>
-            </div>
-            
-            <div class="modal-section">
-                <h4>⚠️ Challenges</h4>
-                <p>${project.challenges}</p>
-            </div>
-            
-            <div class="modal-section">
-                <h4>🏆 Outcomes & Impact</h4>
-                <p>${project.outcomes}</p>
-            </div>
-            
-            <div class="modal-section">
-                <h4>🛠️ Technologies Used</h4>
-                <ul>
-                    ${project.technologies.map(tech => `<li>${tech}</li>`).join('')}
-                </ul>
-            </div>
-            
-            <div class="modal-section">
-                <h4>⏱️ Timeline</h4>
-                <p>${project.timeline}</p>
-            </div>
-            
-            <div class="modal-section">
-                <h4>👥 Team</h4>
-                <p>${project.team}</p>
-            </div>
-        `;
-        
-        modalCache[projectId] = modalHTML;
-        document.getElementById('modal-body').innerHTML = modalHTML;
-        modal.style.display = 'block';
-        document.body.style.overflow = 'hidden';
-    }
-}
+const projectDetails = {
+    'crow-studio': {
+        title: 'Crow Studio - Kauwe Bende',
+        overview: 'Kauwe Bende is a UNO-style card game designed to help young adults connect through self-reflection questions. Instead of only focusing on winning, the game encourages players to open up, laugh, and share personal experiences.',
+        problem: 'Loneliness is increasing among young adults, and many people find it difficult to start meaningful conversations in a natural way.',
+        solution: 'We designed a familiar card-game format with deeper icebreaker questions, making conversations feel playful instead of awkward.',
+        role: 'I contributed to the concept, digital game version, design decisions, portfolio presentation, and improving the interactive experience.',
+        tools: ['HTML', 'CSS', 'JavaScript', 'Game Design', 'UX Thinking', 'Playtesting'],
+        links: [
+            { label: 'Play Desktop Version', url: 'https://yazanfattal.github.io/kauweBende/' },
+            { label: 'Play Mobile Version', url: 'https://yazanfattal.github.io/kauweBendeMobileVersion/' },
+            { label: 'Watch Demo Video', url: 'https://www.youtube.com/watch?v=NYifCcKBmeU' }
+        ]
+    },
 
-if (closeModal) {
-    closeModal.onclick = function() {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    };
-}
+    'smart-mobile': {
+        title: 'Smart Mobile',
+        overview: 'Smart Mobile includes three mobile app concepts: New Roots, Sensory Space, and Plant Tree. Each concept focuses on a different user need and shows my ability to design mobile-first experiences.',
+        problem: 'Many apps are visually busy or difficult to navigate, especially for users who need support, calmness, or education.',
+        solution: 'I created simple mobile interfaces with clear navigation, soft visual hierarchy, and user-friendly layouts.',
+        role: 'I worked on app concepts, responsive iPhone-style templates, user journeys, and demo videos for presenting the ideas.',
+        tools: ['Figma', 'Android Concepts', 'UX/UI Design', 'Mobile Design', 'Canva', 'Storytelling'],
+        links: [
+            { label: 'New Roots Demo', url: 'https://www.youtube.com/shorts/HM3XsdPDK-A' },
+            { label: 'Sensory Space Demo', url: 'https://www.youtube.com/shorts/SIG6u2Z6D8c' },
+            { label: 'Plant Tree Demo', url: 'https://www.youtube.com/shorts/S9eL20umfic' }
+        ]
+    },
 
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
+    'catchee': {
+        title: 'Catchee - Speed-meet Q&A Game',
+        overview: 'Catchee is a speed-meet Q&A game created to help people make new social connections through timed conversations, playful questions, and a friendly visual identity.',
+        problem: 'People experiencing loneliness often struggle to meet others because starting a conversation can feel awkward or stressful.',
+        solution: 'Catchee makes meeting people easier by turning the first conversation into a guided, playful experience.',
+        role: 'I contributed to the visual direction, user journey, prototype screens, storytelling, and presentation material.',
+        tools: ['Figma', 'UX Research', 'Visual Design', 'Prototyping', 'Presentation Design'],
+        links: [
+            { label: 'Watch Demo Video', url: 'https://www.youtube.com/watch?v=tyR4OhImVRY' },
+            { label: 'View on Drieam', url: 'https://portfolio.drieam.app/s/GuxUr36X/wFQfCpUkeeqThXSQQWzZgbz7' }
+        ]
+    },
+
+    'tomra': {
+        title: 'Tomra - Smart Recycling System',
+        overview: 'Tomra is a sustainability-focused concept about improving can recycling through smart disassembly, sorting, and circular economy thinking.',
+        problem: 'Recycling processes can be inefficient when materials are not sorted or prepared correctly.',
+        solution: 'The concept focuses on a smarter system that identifies and supports better material recovery.',
+        role: 'I contributed to research, concept explanation, business thinking, and portfolio presentation.',
+        tools: ['Research', 'Business Process Thinking', 'Sustainability', 'Concept Design', 'Presentation'],
+        links: [
+            { label: 'View on Drieam', url: 'https://portfolio.drieam.app/s/GuxUr36X/8whNgDeemrG7FMAydgWiW9MG' }
+        ]
     }
 };
 
-// Initialize everything when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    initVideoPlayers();
+function openProjectModal(projectId) {
+    const project = projectDetails[projectId];
+
+    if (!project) return;
+
+    const linksHTML = project.links.map(link => `
+        <a href="${link.url}" target="_blank" class="external-link-btn">${link.label} →</a>
+    `).join('');
+
+    modalBody.innerHTML = `
+        <h2 class="modal-project-title">${project.title}</h2>
+
+        <div class="modal-section">
+            <h4>📖 Overview</h4>
+            <p>${project.overview}</p>
+        </div>
+
+        <div class="modal-section">
+            <h4>📋 Problem</h4>
+            <p>${project.problem}</p>
+        </div>
+
+        <div class="modal-section">
+            <h4>💡 Solution</h4>
+            <p>${project.solution}</p>
+        </div>
+
+        <div class="modal-section">
+            <h4>🙋 My Role</h4>
+            <p>${project.role}</p>
+        </div>
+
+        <div class="modal-section">
+            <h4>🛠️ Tools & Skills</h4>
+            <ul>
+                ${project.tools.map(tool => `<li>${tool}</li>`).join('')}
+            </ul>
+        </div>
+
+        <div class="modal-section">
+            <h4>🔗 Links</h4>
+            ${linksHTML}
+        </div>
+    `;
+
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+if (closeModal) {
+    closeModal.addEventListener('click', closeProjectModal);
+}
+
+window.addEventListener('click', (event) => {
+    if (event.target === modal) {
+        closeProjectModal();
+    }
 });
 
-// Game embed functions
-function showGame() {
-    const preview = document.getElementById('gamePreview');
-    const gameFrame = document.getElementById('gameFrame');
-    
-    if (preview && gameFrame) {
-        preview.style.display = 'none';
-        gameFrame.style.display = 'block';
+window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        closeProjectModal();
     }
-}
+});
 
-function hideGame() {
-    const preview = document.getElementById('gamePreview');
-    const gameFrame = document.getElementById('gameFrame');
-    
-    if (preview && gameFrame) {
-        gameFrame.style.display = 'none';
-        preview.style.display = 'flex';
-    }
+function closeProjectModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
 }
-

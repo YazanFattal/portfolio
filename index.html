@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="favicon.png">
 </head>
+
 <body>
 
 <nav>
@@ -18,12 +19,10 @@
             <li><a href="#projects">Work</a></li>
             <li><a href="#contact">Connect</a></li>
         </ul>
-        <div class="theme-toggle">
-            <button id="theme-switch" class="theme-btn">
-                <span class="light-icon">☀️</span>
-                <span class="dark-icon">🌙</span>
-            </button>
-        </div>
+        <button id="theme-switch" class="theme-btn">
+            <span class="light-icon">☀️</span>
+            <span class="dark-icon">🌙</span>
+        </button>
     </div>
 </nav>
 
@@ -41,444 +40,183 @@
 
 <section id="about">
     <h2>My Journey</h2>
-    <p class="section-subtitle">From Damascus to Eindhoven — a journey of growth, discovery, and design</p>
-    
-    <!-- Interactive Journey Map -->
-    <div class="journey-map-container">
+    <p class="section-subtitle">From Damascus to Eindhoven — a journey of growth, discovery, and design.</p>
+
+    <div class="journey-map-container fade-in">
         <div class="map-header">
             <div class="map-title">
-                <span class="map-icon">🗺️</span>
+                <span>🗺️</span>
                 <span>My Path Across Continents</span>
             </div>
             <div class="total-distance">
-                <span class="distance-icon">📏</span>
-                <span>Total Traveled: <strong id="totalDistance">5,900</strong> km</span>
+                📏 Total traveled: <strong>5,900+ km</strong>
             </div>
         </div>
-        
-        <!-- Journey Pins Grid -->
+
         <div class="journey-pins">
-            <!-- Damascus, Syria -->
-            <div class="journey-pin fade-in" data-city="damascus">
-                <div class="pin-marker">
-                    <div class="pin-icon">📍</div>
-                </div>
+            <div class="journey-pin fade-in">
+                <div class="pin-icon">📍</div>
                 <div class="pin-card">
                     <div class="pin-flag">🇸🇾</div>
-                    <h3 class="pin-city">Damascus</h3>
+                    <h3>Damascus</h3>
                     <p class="pin-country">Syria</p>
                     <p class="pin-year">2000 - 2002</p>
-                    <p class="pin-description">Born and raised in one of the oldest continuously inhabited cities in the world. Where my story began.</p>
-                    <div class="pin-distance">Starting point</div>
+                    <p>Where my story began, building my roots, identity, and curiosity.</p>
+                    <span>Starting point</span>
                 </div>
             </div>
-            
-            <!-- Jeddah, Saudi Arabia -->
-            <div class="journey-pin fade-in" data-city="jeddah">
-                <div class="pin-marker">
-                    <div class="pin-icon">📍</div>
-                </div>
+
+            <div class="journey-pin fade-in">
+                <div class="pin-icon">📍</div>
                 <div class="pin-card">
                     <div class="pin-flag">🇸🇦</div>
-                    <h3 class="pin-city">Jeddah</h3>
+                    <h3>Jeddah</h3>
                     <p class="pin-country">Saudi Arabia</p>
                     <p class="pin-year">2002 - 2016</p>
-                    <p class="pin-description">Experienced multicultural growth in this vibrant coastal city. Learned adaptability and embraced diversity.</p>
-                    <div class="pin-distance"><span class="dist-label">Distance traveled:</span> <span class="dist-value">1,320 km</span></div>
+                    <p>A multicultural city where I learned adaptability and diversity.</p>
+                    <span>+1,320 km</span>
                 </div>
             </div>
-            
-            <!-- Valenciennes, France -->
-            <div class="journey-pin fade-in" data-city="valenciennes">
-                <div class="pin-marker">
-                    <div class="pin-icon">📍</div>
-                </div>
+
+            <div class="journey-pin fade-in">
+                <div class="pin-icon">📍</div>
                 <div class="pin-card">
                     <div class="pin-flag">🇫🇷</div>
-                    <h3 class="pin-city">Valenciennes</h3>
+                    <h3>Valenciennes</h3>
                     <p class="pin-country">France</p>
                     <p class="pin-year">2016 - 2019</p>
-                    <p class="pin-description">Completed high school and gained European cultural exposure. Discovered my passion for design and technology.</p>
-                    <div class="pin-distance"><span class="dist-label">Distance traveled:</span> <span class="dist-value">4,200 km</span></div>
+                    <p>High school years where I became more independent and creative.</p>
+                    <span>+4,200 km</span>
                 </div>
             </div>
-            
-            <!-- Eindhoven, Netherlands -->
-            <div class="journey-pin fade-in" data-city="eindhoven">
-                <div class="pin-marker">
-                    <div class="pin-icon">📍</div>
-                </div>
+
+            <div class="journey-pin fade-in">
+                <div class="pin-icon">📍</div>
                 <div class="pin-card">
                     <div class="pin-flag">🇳🇱</div>
-                    <h3 class="pin-city">Eindhoven</h3>
+                    <h3>Eindhoven</h3>
                     <p class="pin-country">Netherlands</p>
                     <p class="pin-year">2019 - Present</p>
-                    <p class="pin-description">Pursuing Media Design & ICT at Fontys University. Living my dream of becoming a designer and innovator.</p>
-                    <div class="pin-distance"><span class="dist-label">Distance traveled:</span> <span class="dist-value">380 km</span></div>
+                    <p>Studying Media Design & ICT and building projects with purpose.</p>
+                    <span>+380 km</span>
                 </div>
             </div>
         </div>
-        
-        <!-- Journey Stats -->
+
         <div class="journey-stats">
-            <div class="stat-item">
-                <div class="stat-emoji">🌍</div>
-                <div class="stat-info">
-                    <span class="stat-number">4</span>
-                    <span class="stat-label">Countries Lived</span>
-                </div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-emoji">🏠</div>
-                <div class="stat-info">
-                    <span class="stat-number">4</span>
-                    <span class="stat-label">Cities Called Home</span>
-                </div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-emoji">📏</div>
-                <div class="stat-info">
-                    <span class="stat-number">5,900+</span>
-                    <span class="stat-label">Kilometers Traveled</span>
-                </div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-emoji">🗣️</div>
-                <div class="stat-info">
-                    <span class="stat-number">4</span>
-                    <span class="stat-label">Languages Spoken</span>
-                </div>
-            </div>
+            <div class="stat-item">🌍 <strong>4</strong><span>Countries</span></div>
+            <div class="stat-item">🏠 <strong>4</strong><span>Cities</span></div>
+            <div class="stat-item">📏 <strong>5,900+</strong><span>Kilometers</span></div>
+            <div class="stat-item">🗣️ <strong>4</strong><span>Languages</span></div>
         </div>
-    </div>
-    
-    <!-- Original Journey Cards (Compact) -->
-    <!-- <div class="journey-grid-compact">
-        <div class="journey-card-compact fade-in">
-            <div class="journey-flag">🇸🇾</div>
-            <h3>Damascus</h3>
-            <p>Birthplace · 2000-2010</p>
-        </div>
-        <div class="journey-card-compact fade-in">
-            <div class="journey-flag">🇸🇦</div>
-            <h3>Jeddah</h3>
-            <p>Growth · 2010-2016</p>
-        </div>
-        <div class="journey-card-compact fade-in">
-            <div class="journey-flag">🇫🇷</div>
-            <h3>Valenciennes</h3>
-            <p>High School · 2016-2020</p>
-        </div>
-        <div class="journey-card-compact fade-in">
-            <div class="journey-flag">🇳🇱</div>
-            <h3>Eindhoven</h3>
-            <p>University · 2020-Present</p>
-        </div> -->
     </div>
 </section>
-    
-    <!-- PROJECT 1 - CROW STUDIO with Game Underneath -->
-<div class="project-showcase fade-in">
-    <div class="project-number">01</div>
-    <div class="project-content" style="flex-direction: column;">
-        
-        <!-- Project Details - TOP SECTION -->
-        <div class="project-details" style="padding: 0 0 20px 0; width: 100%;">
-            <h3>Crow Studio</h3>
-            <div class="project-tags">
-                <span>Game Design</span>
-                <span>Social Connection</span>
-                <span>Card Game</span>
-            </div>
-            
-            <div class="problem-solution">
-                <div class="problem">
-                    <h4>📋 The Problem</h4>
-                    <p>Loneliness is increasing among young adults who struggle to find meaningful connections. People find it difficult to open up and have deep, reflective conversations with others.</p>
-                </div>
-                <div class="solution">
-                    <h4>💡 The Solution</h4>
-                    <p>We created <strong>Kauwe Bende</strong>, a card game with the same concept as UNO but with questions that reflect on yourself. The game encourages players to share personal experiences, thoughts, and feelings in a fun, low-pressure way.</p>
-                </div>
-            </div>
-            
-            <div class="project-features">
-                <span>🎴 UNO-style gameplay</span>
-                <span>💬 Self-reflection questions</span>
-                <span>🤝 Builds genuine connections</span>
-            </div>
-            
-            <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px;">
-                <button class="read-more-btn" onclick="openProjectModal('crow-studio')" style="flex: 1;">
-                    📄 Read Full Case Study
-                    <span class="arrow">→</span>
-                </button>
-                <a href="https://portfolio.drieam.app/s/GuxUr36X/Yr3yA4AHTFQFQycVVGhYzSnX" target="_blank" class="external-link-btn" style="flex: 1;">
-                    🌐 View on Drieam
-                    <span class="arrow">→</span>
-                </a>
-            </div>
-        </div>
-        
-        <!-- Game Launch Card - BOTTOM SECTION (with both desktop and mobile links) -->
-<div class="game-launch-card" style="margin-top: 20px; position: relative;">
-    <!-- YouTube Demo Button - INSIDE the game card (top-right corner) -->
-    <a href="https://www.youtube.com/watch?v=NYifCcKBmeU" target="_blank" class="youtube-badge game-youtube-badge">
-        <span class="youtube-badge-icon">▶</span>
-        <span>Watch Demo Video</span>
-    </a>
 
-    <div class="game-launch-icon">🎴</div>
-    <div class="game-launch-title">Kauwe Bende</div>
-    <div class="game-launch-description">A UNO-style card game with self-reflection questions that help people connect</div>
+<section id="projects">
+    <h2>Featured Work</h2>
+    <p class="section-subtitle">A selection of projects where I explored design, interaction, and problem-solving.</p>
 
-    <div class="game-stats">
-        <div class="game-stat">
-            <span class="stat-emoji">👥</span>
-            <span class="stat-text">2-4 Players</span>
-        </div>
-        <div class="game-stat">
-            <span class="stat-emoji">⏱️</span>
-            <span class="stat-text">20 Minutes</span>
-        </div>
-        <div class="game-stat">
-            <span class="stat-emoji">💬</span>
-            <span class="stat-text">Icebreaker Questions</span>
-        </div>
-    </div>
+    <div class="projects-grid">
 
-    <!-- Two buttons side-by-side for Desktop and Mobile versions -->
-    <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-top: 5px;">
-        <a href="https://yazanfattal.github.io/kauweBende/" target="_blank" class="launch-game-btn" style="flex: 1; text-align: center; justify-content: center;">
-            🖥️ Play Desktop Version →
-        </a>
-        <a href="https://yazanfattal.github.io/kauweBendeMobileVersion/" target="_blank" class="launch-game-btn" style="flex: 1; text-align: center; justify-content: center; background: linear-gradient(135deg, #4ecdc4, #44a08d);">
-            📱 Play Mobile Version →
-        </a>
-    </div>
-
-    <p class="game-note">Opens in new tab · Full screen experience · No download required</p>
-</div>
-
-
-<!-- PROJECT 2 - SMART MOBILE with 3 Case Studies (Description First) -->
-<div class="project-showcase fade-in">
-    <div class="project-number">02</div>
-    <div class="project-content" style="flex-direction: column;">
-        
-        <!-- Smart Mobile Header -->
-        <div class="smartmobile-header">
-            <div class="smartmobile-icon">📱</div>
-            <h3 class="smartmobile-title">Smart Mobile</h3>
-            <p class="smartmobile-subtitle">Three innovative mobile applications solving real-world problems</p>
-        </div>
-        
-        <!-- 3 Cases Grid - Description First, Video Link Below -->
-        <div class="cases-grid">
-            
-            <!-- CASE 1: New Roots -->
-            <div class="case-card">
-                <div class="case-content-full">
-                    <div class="case-emoji-large">🌍</div>
-                    <h4 class="case-title">New Roots</h4>
-                    <div class="case-tags">
-                        <span>Integration</span>
-                        <span>Community</span>
-                        <span>Support</span>
-                    </div>
-                    <p class="case-description-full">"New country, new life… but not alone." An app helping refugees navigate their new environment and find local resources.</p>
-                    <a href="https://www.youtube.com/shorts/HM3XsdPDK-A" target="_blank" class="case-video-link">
-                        <span class="video-link-icon">▶</span>
-                        Watch Demo Video →
-                    </a>
-                </div>
+        <div class="project-card fade-in">
+            <div class="project-number">01</div>
+            <div class="project-visual crow-bg">
+                <div class="project-emoji">🎴</div>
+                <h3>Kauwe Bende</h3>
+                <p>UNO-style icebreaker game</p>
             </div>
-            
-            <!-- CASE 2: Sensory Space -->
-            <div class="case-card">
-                <div class="case-content-full">
-                    <div class="case-emoji-large">🎨</div>
-                    <h4 class="case-title">Sensory Space</h4>
-                    <div class="case-tags">
-                        <span>Accessibility</span>
-                        <span>Sensory</span>
-                        <span>Calming</span>
-                    </div>
-                    <p class="case-description-full">An app designed for individuals with sensory sensitivities, providing customizable calming experiences and tools.</p>
-                    <a href= "https://www.youtube.com/shorts/SIG6u2Z6D8c" target="_blank" class="case-video-link">
-                        <span class="video-link-icon">▶</span>
-                        Watch Demo Video →
-                    </a>
+            <div class="project-info">
+                <h3>Crow Studio</h3>
+                <p>A playful card game helping young adults start deeper conversations in a low-pressure way.</p>
+                <div class="project-tags">
+                    <span>Game Design</span>
+                    <span>Social Connection</span>
+                    <span>UX Research</span>
                 </div>
-            </div>
-            
-            <!-- CASE 3: Plant Tree -->
-            <div class="case-card">
-                <div class="case-content-full">
-                    <div class="case-emoji-large">🌿</div>
-                    <h4 class="case-title">Plant Tree</h4>
-                    <div class="case-tags">
-                        <span>Sustainability</span>
-                        <span>Gardening</span>
-                        <span>Education</span>
-                    </div>
-                    <p class="case-description-full">An app that teaches users how to plant and care for trees, promoting green living and environmental sustainability.</p>
-                    <a href="https://www.youtube.com/shorts/S9eL20umfic" target="_blank" class="case-video-link">
-                        <span class="video-link-icon">▶</span>
-                        Watch Demo Video →
-                    </a>
-                </div>
+                <button onclick="openProjectModal('crow-studio')" class="read-more-btn">View Case Study →</button>
+                <a href="https://yazanfattal.github.io/kauweBende/" target="_blank" class="external-link-btn">Play Desktop Version →</a>
+                <a href="https://yazanfattal.github.io/kauweBendeMobileVersion/" target="_blank" class="external-link-btn">Play Mobile Version →</a>
             </div>
         </div>
-        
-        <!-- Project Details (Problem & Solution) -->
-        <div class="project-details" style="padding: 30px 0 0 0; width: 100%;">
-            <div class="problem-solution">
-                <div class="problem">
-                    <h4>📋 The Problem</h4>
-                    <p>Mobile apps often have complex navigation that confuses users, leading to high drop-off rates. Each of these three user groups (refugees, sensory-sensitive individuals, and gardening enthusiasts) has unique needs that standard apps fail to address.</p>
-                </div>
-                <div class="solution">
-                    <h4>💡 The Solution</h4>
-                    <p>Designed and developed three specialized Android applications with clean navigation, responsive layouts, and user-centered design principles tailored to each group's specific needs.</p>
-                </div>
-            </div>
-            
-            <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px;">
-                <button class="read-more-btn" onclick="openProjectModal('smart-mobile')" style="flex: 1;">
-                    📄 Read Full Case Study
-                    <span class="arrow">→</span>
-                </button>
-                <a href="https://portfolio.drieam.app/s/GuxUr36X/JVrign45XBMhA39RpCg93KWe" target="_blank" class="external-link-btn" style="flex: 1;">
-                    🌐 View on Drieam
-                    <span class="arrow">→</span>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
 
-    <!-- PROJECT 3 - CATCHEE (Speed-meet Q&A Game) -->
-<div class="project-showcase fade-in">
-    <div class="project-number">03</div>
-    <div class="project-content">
-        <div class="project-visual">
-            <!-- Your YouTube link is correctly placed in the href attribute -->
-            <a href="https://www.youtube.com/watch?v=tyR4OhImVRY" target="_blank" class="video-link">
-                <div class="video-thumbnail custom-thumbnail catchee-thumbnail">
-                    <div class="thumbnail-content">
-                        <div class="thumbnail-emoji">⚡</div>
-                        <div class="thumbnail-title">Catchee</div>
-                        <div class="thumbnail-subtitle">Speed-meet Q&A Game</div>
-                    </div>
-                    <div class="play-overlay">
-                        <div class="play-button">▶</div>
-                    </div>
-                    <div class="video-badge">🎬 Watch Demo</div>
+        <div class="project-card fade-in">
+            <div class="project-number">02</div>
+            <div class="project-visual mobile-bg">
+                <div class="project-emoji">📱</div>
+                <h3>Smart Mobile</h3>
+                <p>Three app concepts</p>
+            </div>
+            <div class="project-info">
+                <h3>Smart Mobile</h3>
+                <p>Three mobile app concepts focused on accessibility, support, sustainability, and simple navigation.</p>
+                <div class="project-tags">
+                    <span>Android</span>
+                    <span>UX/UI</span>
+                    <span>Mobile Design</span>
                 </div>
-            </a>
+                <button onclick="openProjectModal('smart-mobile')" class="read-more-btn">View Case Study →</button>
+                <a href="https://portfolio.drieam.app/s/GuxUr36X/JVrign45XBMhA39RpCg93KWe" target="_blank" class="external-link-btn">View on Drieam →</a>
+            </div>
         </div>
-        <div class="project-details">
-            <h3>Catchee</h3>
-            <div class="project-tags">
-                <span>Social Impact</span>
-                <span>Q&A Game</span>
-                <span>Speed-meet</span>
-            </div>
-            <div class="problem-solution">
-                <div class="problem">
-                    <h4>📋 The Problem</h4>
-                    <p>People experiencing loneliness lack tools that facilitate meaningful, low-pressure social interactions. Traditional social apps focus on matching but don't help break the ice or create genuine conversation starters.</p>
-                </div>
-                <div class="solution">
-                    <h4>💡 The Solution</h4>
-                    <p><strong>Catchee</strong> is a speed-meet style Q&A game that pairs people for quick, timed conversations with fun and thoughtful questions. Players answer together, share opinions, and discover common interests - removing the awkwardness of meeting new people.</p>
-                </div>
-            </div>
-            <div class="project-features">
-                <span>⚡ Speed-meet format</span>
-                <span>💬 Curated question bank</span>
-                <span>🎯 Points for matching answers</span>
-                <span>🤝 Low-pressure connections</span>
-            </div>
-            <button class="read-more-btn" onclick="openProjectModal('catchee')">
-                📄 Read Full Case Study
-                <span class="arrow">→</span>
-            </button>
-            <a href="https://portfolio.drieam.app/s/GuxUr36X/wFQfCpUkeeqThXSQQWzZgbz7" target="_blank" class="external-link-btn">
-                🌐 View on Drieam
-                <span class="arrow">→</span>
-            </a>
-        </div>
-    </div>
-</div>
 
-    <!-- PROJECT 4 - TOMRA -->
-    <div class="project-showcase fade-in">
-        <div class="project-number">04</div>
-        <div class="project-content">
-            <div class="project-visual">
-                <a href="videos/tomra-demo.mp4" target="_blank" class="video-link">
-                    <div class="video-thumbnail custom-thumbnail tomra-thumbnail">
-                        <div class="thumbnail-content">
-                            <div class="thumbnail-emoji">♻️</div>
-                            <div class="thumbnail-title">Tomra</div>
-                            <div class="thumbnail-subtitle">Smart Recycling System</div>
-                        </div>
-                        <div class="play-overlay">
-                            <div class="play-button">▶</div>
-                        </div>
-                        <div class="video-badge">🎬 Watch Demo</div>
-                    </div>
-                </a>
+        <div class="project-card fade-in">
+            <div class="project-number">03</div>
+            <div class="project-visual catchee-bg">
+                <div class="project-emoji">⚡</div>
+                <h3>Catchee</h3>
+                <p>Speed-meet Q&A game</p>
             </div>
-            <div class="project-details">
+            <div class="project-info">
+                <h3>Catchee</h3>
+                <p>A speed-meet experience that helps people connect through timed questions and playful interaction.</p>
+                <div class="project-tags">
+                    <span>Social Impact</span>
+                    <span>Q&A Game</span>
+                    <span>Figma</span>
+                </div>
+                <button onclick="openProjectModal('catchee')" class="read-more-btn">View Case Study →</button>
+                <a href="https://www.youtube.com/watch?v=tyR4OhImVRY" target="_blank" class="external-link-btn">Watch Demo →</a>
+            </div>
+        </div>
+
+        <div class="project-card fade-in">
+            <div class="project-number">04</div>
+            <div class="project-visual tomra-bg">
+                <div class="project-emoji">♻️</div>
                 <h3>Tomra</h3>
+                <p>Smart recycling system</p>
+            </div>
+            <div class="project-info">
+                <h3>Tomra</h3>
+                <p>A smart disassembly concept for improving recycling, sorting, and circular material recovery.</p>
                 <div class="project-tags">
                     <span>Sustainability</span>
-                    <span>Smart Disassembly</span>
+                    <span>Business</span>
                     <span>Circular Economy</span>
                 </div>
-                <div class="problem-solution">
-                    <div class="problem">
-                        <h4>📋 The Problem</h4>
-                        <p>Can recycling is inefficient, with valuable materials often going to waste due to improper sorting and disassembly processes.</p>
-                    </div>
-                    <div class="solution">
-                        <h4>💡 The Solution</h4>
-                        <p>Smart Disassembly System for cans (Statiegeld machine) that automatically identifies, sorts, and prepares cans for optimal recycling and material recovery.</p>
-                    </div>
-                </div>
-                <div class="project-features">
-                    <span>✨ Automated sorting</span>
-                    <span>♻️ Material recovery</span>
-                    <span>🔧 Smart disassembly</span>
-                </div>
-                <button class="read-more-btn" onclick="openProjectModal('tomra')">
-                    📄 Read Full Case Study
-                    <span class="arrow">→</span>
-                </button>
-                <a href="https://portfolio.drieam.app/s/GuxUr36X/8whNgDeemrG7FMAydgWiW9MG" target="_blank" class="external-link-btn">
-                    🌐 View on Drieam
-                    <span class="arrow">→</span>
-                </a>
+                <button onclick="openProjectModal('tomra')" class="read-more-btn">View Case Study →</button>
+                <a href="https://portfolio.drieam.app/s/GuxUr36X/8whNgDeemrG7FMAydgWiW9MG" target="_blank" class="external-link-btn">View on Drieam →</a>
             </div>
         </div>
+
     </div>
 </section>
 
 <section id="contact">
     <h2>Let's Connect</h2>
-    <p class="section-subtitle">Have a project idea? I'd love to hear from you.</p>
+    <p class="section-subtitle">Have a project idea? I’d love to hear from you.</p>
+
     <div class="contact-grid">
         <div class="contact-card fade-in">
             <div class="contact-icon">📧</div>
             <a href="mailto:yazanfattal19@gmail.com">yazanfattal19@gmail.com</a>
         </div>
+
         <div class="contact-card fade-in">
             <div class="contact-icon">📍</div>
             <p>Eindhoven, NL</p>
         </div>
+
         <div class="contact-card fade-in">
             <div class="contact-icon">💼</div>
             <a href="https://www.linkedin.com/in/yazan-fattal-8b25b21b9/" target="_blank">LinkedIn</a>
@@ -486,7 +224,6 @@
     </div>
 </section>
 
-<!-- Modal for Project Details -->
 <div id="projectModal" class="modal">
     <div class="modal-content">
         <span class="close-modal">&times;</span>
