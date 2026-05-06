@@ -36,7 +36,7 @@ const observer = new IntersectionObserver((entries) => {
 fadeElements.forEach(element => observer.observe(element));
 
 const modal = document.getElementById('projectModal');
-const closeModal = document.querySelector('.close-modal');
+const closeModalBtn = document.querySelector('.close-modal');
 const modalBody = document.getElementById('modal-body');
 
 const projectDetails = {
@@ -97,7 +97,7 @@ const projectDetails = {
 function openProjectModal(projectId) {
     const project = projectDetails[projectId];
 
-    if (!project) return;
+    if (!project || !modal || !modalBody) return;
 
     const linksHTML = project.links.map(link => `
         <a href="${link.url}" target="_blank" class="external-link-btn">${link.label} →</a>
@@ -143,8 +143,15 @@ function openProjectModal(projectId) {
     document.body.style.overflow = 'hidden';
 }
 
-if (closeModal) {
-    closeModal.addEventListener('click', closeProjectModal);
+function closeProjectModal() {
+    if (!modal) return;
+
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+}
+
+if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', closeProjectModal);
 }
 
 window.addEventListener('click', (event) => {
@@ -158,8 +165,3 @@ window.addEventListener('keydown', (event) => {
         closeProjectModal();
     }
 });
-
-function closeProjectModal() {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
