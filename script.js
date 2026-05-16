@@ -92,6 +92,19 @@ const projectDetails = {
             { label: 'View on Drieam', url: 'https://portfolio.drieam.app/s/GuxUr36X/8whNgDeemrG7FMAydgWiW9MG' }
         ]
     }
+
+    'ludo-game': {
+    title: 'Ludo Rush - Digital Board Game',
+    overview: 'Ludo Rush is a fully interactive, browser-based Ludo game built with HTML, CSS, and JavaScript. It features a complete game engine, turn-based mechanics, and a clean, responsive interface.',
+    problem: 'The goal was to create a faithful digital recreation of the classic Ludo board game that is fun, intuitive, and bug-free, allowing players to enjoy the game against AI opponents.',
+    solution: 'I developed a complete game logic system to handle dice rolls, token movement, collision detection, capturing, safe zones, and win conditions, all wrapped in a simple, clean UI.',
+    role: 'I was the sole developer, responsible for all aspects: game logic (JavaScript), user interface (HTML/CSS), design, sound integration, and testing.',
+    tools: ['HTML5', 'CSS3', 'JavaScript', 'Game Logic', 'Audio API', 'Responsive Design'],
+    links: [
+        { label: 'Play Ludo Game', url: 'https://yazanfattal.github.io/ludo-game/?v=3' }
+    ]
+}
+
 };
 
 function openProjectModal(projectId) {
