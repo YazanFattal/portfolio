@@ -41,18 +41,20 @@ const modalBody = document.getElementById('modal-body');
 
 const projectDetails = {
     'crow-studio': {
-        title: 'Crow Studio - Kauwe Bende',
-        overview: 'Kauwe Bende is a UNO-style card game designed to help young adults connect through self-reflection questions. Instead of only focusing on winning, the game encourages players to open up, laugh, and share personal experiences.',
-        problem: 'Loneliness is increasing among young adults, and many people find it difficult to start meaningful conversations in a natural way.',
-        solution: 'We designed a familiar card-game format with deeper icebreaker questions, making conversations feel playful instead of awkward.',
-        role: 'I contributed to the concept, digital game version, design decisions, portfolio presentation, and improving the interactive experience.',
-        tools: ['HTML', 'CSS', 'JavaScript', 'Game Design', 'UX Thinking', 'Playtesting'],
-        links: [
-            { label: 'Play Desktop Version', url: 'https://yazanfattal.github.io/kauweBende/' },
-            { label: 'Play Mobile Version', url: 'https://yazanfattal.github.io/kauweBendeMobileVersion/' },
-            { label: 'Watch Demo Video', url: 'https://www.youtube.com/watch?v=NYifCcKBmeU' }
-        ]
-    },
+    title: 'Crow Studio - Kauwe Bende',
+    overview: 'Kauwe Bende is a UNO-style card game designed to help young adults connect through self-reflection questions. Instead of only focusing on winning, the game encourages players to open up, laugh, and share personal experiences.',
+    problem: 'Loneliness is increasing among young adults, and many people find it difficult to start meaningful conversations in a natural way.',
+    solution: 'We designed a familiar card-game format with deeper icebreaker questions, making conversations feel playful instead of awkward.',
+    role: 'I contributed to the concept, digital game version, design decisions, portfolio presentation, and improving the interactive experience.',
+    tools: ['HTML', 'CSS', 'JavaScript', 'Game Design', 'UX Thinking', 'Playtesting'],
+    links: [
+        { label: 'Play Desktop Version', url: 'https://yazanfattal.github.io/kauweBende/' },
+        { label: 'Play Mobile Version', url: 'https://yazanfattal.github.io/kauweBendeMobileVersion/' },
+        { label: 'Watch Demo Video', url: 'https://www.youtube.com/watch?v=NYifCcKBmeU' },
+        { label: 'Full Documentation on Portflow', url: 'https://portfolio.drieam.app/s/GuxUr36X/XNCJf29o6wbf2U2pjP8s2aYC' }
+    ]
+},
+
 
     'smart-mobile': {
         title: 'Smart Mobile',

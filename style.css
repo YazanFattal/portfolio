@@ -317,7 +317,7 @@ section h2 {
     letter-spacing: 0.5px;
 }
 
-/* PROJECTS */
+/* PROJECTS SECTION - FIXED ALIGNMENT */
 #projects {
     background: var(--bg-primary);
 }
@@ -370,7 +370,6 @@ section h2 {
     align-items: center;
 }
 
-/* Make all project logos visible on colored backgrounds */
 .project-logo {
     width: 70px;
     height: 70px;
@@ -404,6 +403,95 @@ section h2 {
     max-width: 100%;
 }
 
+/* Project Info - FIXED BUTTON ALIGNMENT */
+.project-info {
+    padding: 28px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-info h3 {
+    color: var(--accent);
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.project-info p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+}
+
+/* Tags styling */
+.project-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.project-tags span {
+    background: var(--soft-bg);
+    color: var(--text-secondary);
+    border-radius: 50px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* BUTTONS - FIXED ALIGNMENT */
+.read-more-btn,
+.external-link-btn {
+    width: 100%;
+    border-radius: 50px;
+    padding: 12px 16px;
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.read-more-btn {
+    background: var(--accent);
+    color: white;
+}
+
+.read-more-btn:hover {
+    background: #ee5a5a;
+    transform: translateY(-2px);
+}
+
+.external-link-btn {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+}
+
+.external-link-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* Make sure buttons stack vertically */
+.project-info .read-more-btn,
+.project-info .external-link-btn {
+    margin-top: 8px;
+    width: 100%;
+}
+
+/* Background colors */
 .crow-bg {
     background: linear-gradient(135deg, #1a472a, #0e2a1e);
 }
@@ -422,88 +510,6 @@ section h2 {
 
 .ludo-bg {
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-}
-
-.project-info {
-    padding: 28px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
-.project-info h3 {
-    color: var(--accent);
-    font-size: 26px;
-    margin-bottom: 12px;
-}
-
-.project-info p {
-    color: var(--text-secondary);
-    font-size: 14px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-}
-
-.project-tags {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-bottom: 22px;
-    margin-top: auto;
-}
-
-.project-tags span {
-    background: var(--soft-bg);
-    color: var(--text-secondary);
-    border-radius: 50px;
-    padding: 6px 13px;
-    font-size: 12px;
-}
-
-.read-more-btn,
-.external-link-btn {
-    width: 100%;
-    border-radius: 50px;
-    padding: 12px 20px;
-    font-family: inherit;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 8px;
-    transition: 0.2s;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.read-more-btn {
-    background: var(--accent);
-    color: white;
-    border: none;
-}
-
-.read-more-btn:hover {
-    background: #ee5a5a;
-}
-
-.external-link-btn {
-    background: transparent;
-    color: var(--text-secondary);
-    border: 1px solid var(--border-color);
-}
-
-.external-link-btn:hover {
-    color: var(--accent);
-    border-color: var(--accent);
 }
 
 /* CONTACT */
@@ -610,31 +616,19 @@ body.dark .contact-badge {
     font-size: 0.85rem;
 }
 
-.youtube:hover,
-.github:hover,
-.linkedin:hover {
-    color: white;
-}
-
-.youtube:hover strong,
-.github:hover strong,
-.linkedin:hover strong,
-.youtube:hover small,
-.github:hover small,
-.linkedin:hover small {
-    color: white;
-}
-
 .youtube:hover {
     background: #ff0033;
+    color: white;
 }
 
 .github:hover {
     background: #24292e;
+    color: white;
 }
 
 .linkedin:hover {
     background: #0077b5;
+    color: white;
 }
 
 .email:hover {
@@ -642,8 +636,13 @@ body.dark .contact-badge {
     color: #111;
 }
 
-.email:hover strong,
-.email:hover small {
+.youtube:hover strong, .youtube:hover small,
+.github:hover strong, .github:hover small,
+.linkedin:hover strong, .linkedin:hover small {
+    color: white;
+}
+
+.email:hover strong, .email:hover small {
     color: #111;
 }
 
@@ -744,7 +743,7 @@ body.dark .contact-badge {
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
     .nav-container {
         flex-direction: column;
         gap: 14px;
@@ -798,7 +797,12 @@ body.dark .contact-badge {
     .external-link-btn {
         white-space: normal;
         font-size: 12px;
-        padding: 10px 15px;
+        padding: 10px 12px;
+    }
+    
+    .project-tags span {
+        font-size: 10px;
+        padding: 4px 10px;
     }
 }
 
