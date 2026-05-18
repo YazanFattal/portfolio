@@ -116,10 +116,17 @@
     <h2>Featured Work</h2>
     <p class="section-subtitle">A selection of projects where I explored design, interaction, and problem-solving.</p>
 
-    <div class="projects-grid">
+    <!-- FILTER TABS -->
+    <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">📁 All Projects</button>
+        <button class="filter-btn" data-filter="game">🎮 Games</button>
+        <button class="filter-btn" data-filter="app">📱 Apps & UX</button>
+    </div>
 
-        <!-- PROJECT 1 - CROW STUDIO -->
-        <div class="project-card fade-in">
+    <div class="projects-grid" id="projects-grid">
+
+        <!-- PROJECT 1 - CROW STUDIO (Game) -->
+        <div class="project-card fade-in" data-category="game">
             <div class="project-number">01</div>
             <div class="project-visual crow-bg">
                 <img src="logo.svg" alt="Crow Studio Logo" class="project-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
@@ -137,12 +144,13 @@
                 </div>
                 <button onclick="openProjectModal('crow-studio')" class="read-more-btn">📖 View Case Study →</button>
                 <a href="https://portfolio.drieam.app/s/GuxUr36X/XNCJf29o6wbf2U2pjP8s2aYC" target="_blank" class="external-link-btn">🌐 View on Drieam →</a>
-            
+                <a href="https://yazanfattal.github.io/kauweBende/" target="_blank" class="external-link-btn">🖥️ Play Desktop →</a>
+                <a href="https://yazanfattal.github.io/kauweBendeMobileVersion/" target="_blank" class="external-link-btn">📱 Play Mobile →</a>
             </div>
         </div>
 
-        <!-- PROJECT 2 - SMART MOBILE -->
-        <div class="project-card fade-in">
+        <!-- PROJECT 2 - SMART MOBILE (App) -->
+        <div class="project-card fade-in" data-category="app">
             <div class="project-number">02</div>
             <div class="project-visual mobile-bg">
                 <img src="fontys.jpg" alt="Smart Mobile Logo" class="project-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
@@ -163,8 +171,8 @@
             </div>
         </div>
 
-        <!-- PROJECT 3 - CATCHEE -->
-        <div class="project-card fade-in">
+        <!-- PROJECT 3 - CATCHEE (App) -->
+        <div class="project-card fade-in" data-category="app">
             <div class="project-number">03</div>
             <div class="project-visual catchee-bg">
                 <img src="catchee.png" alt="Catchee Logo" class="project-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
@@ -185,8 +193,8 @@
             </div>
         </div>
 
-        <!-- PROJECT 4 - TOMRA -->
-        <div class="project-card fade-in">
+        <!-- PROJECT 4 - TOMRA (App) -->
+        <div class="project-card fade-in" data-category="app">
             <div class="project-number">04</div>
             <div class="project-visual tomra-bg">
                 <img src="tomra.jpeg" alt="Tomra Logo" class="project-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
@@ -207,8 +215,8 @@
             </div>
         </div>
 
-        <!-- PROJECT 5 - LUDO GAME -->
-        <div class="project-card fade-in">
+        <!-- PROJECT 5 - LUDO GAME (Game) -->
+        <div class="project-card fade-in" data-category="game">
             <div class="project-number">05</div>
             <div class="project-visual ludo-bg">
                 <div class="project-emoji">🎲</div>
