@@ -51,7 +51,7 @@ const projectDetails = {
         { label: 'Play Desktop Version', url: 'https://yazanfattal.github.io/kauweBende/' },
         { label: 'Play Mobile Version', url: 'https://yazanfattal.github.io/kauweBendeMobileVersion/' },
         { label: 'Watch Demo Video', url: 'https://www.youtube.com/watch?v=NYifCcKBmeU' },
-        { label: 'Full Documentation on Portflow', url: 'https://portfolio.drieam.app/s/GuxUr36X/XNCJf29o6wbf2U2pjP8s2aYC' }
+        { label: 'Full Documentation on Portflow', url: 'https://portfolio.drieam.app/s/GuxUr36X/rFWszaCFvsyo7WDHZhUsvs3E' }
     ]
 },
 
