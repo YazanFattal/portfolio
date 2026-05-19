@@ -37,7 +37,10 @@ body {
     overflow-x: hidden;
 }
 
-/* NAVIGATION */
+/* ========================================
+   NAVIGATION
+   ======================================== */
+
 nav {
     position: fixed;
     top: 0;
@@ -75,6 +78,7 @@ nav a {
     text-decoration: none;
     color: var(--text-primary);
     font-weight: 500;
+    transition: color 0.2s;
 }
 
 nav a:hover {
@@ -87,6 +91,11 @@ nav a:hover {
     border-radius: 50px;
     padding: 8px 16px;
     cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.theme-btn:hover {
+    transform: scale(1.05);
 }
 
 body.dark .dark-icon,
@@ -94,7 +103,10 @@ body:not(.dark) .light-icon {
     display: none;
 }
 
-/* HERO */
+/* ========================================
+   HERO SECTION
+   ======================================== */
+
 header {
     min-height: 100vh;
     padding-top: 90px;
@@ -152,7 +164,10 @@ header p {
     font-size: 14px;
 }
 
-/* GENERAL SECTIONS */
+/* ========================================
+   GENERAL SECTIONS
+   ======================================== */
+
 section {
     padding: 60px 40px;
 }
@@ -176,7 +191,10 @@ section h2 {
     background: var(--bg-secondary);
 }
 
-/* JOURNEY */
+/* ========================================
+   JOURNEY SECTION (Windows Compatible)
+   ======================================== */
+
 .journey-map-container {
     max-width: 1150px;
     margin: auto;
@@ -194,11 +212,19 @@ section h2 {
     border-bottom: 1px solid var(--border-color);
     padding-bottom: 20px;
     margin-bottom: 30px;
+    flex-wrap: wrap;
 }
 
 .map-title {
     font-size: 20px;
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.text-icon {
+    font-size: 24px;
 }
 
 .total-distance {
@@ -207,6 +233,9 @@ section h2 {
     padding: 8px 18px;
     border-radius: 50px;
     font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .total-distance strong {
@@ -224,9 +253,9 @@ section h2 {
 }
 
 .pin-icon {
-    font-size: 34px;
+    font-size: 32px;
     margin-bottom: 12px;
-    transition: 0.2s;
+    transition: transform 0.2s;
 }
 
 .journey-pin:hover .pin-icon {
@@ -240,7 +269,7 @@ section h2 {
     padding: 20px;
     min-height: 300px;
     box-shadow: var(--shadow);
-    transition: 0.2s;
+    transition: transform 0.2s, border-color 0.2s;
 }
 
 .pin-card:hover {
@@ -249,18 +278,26 @@ section h2 {
 }
 
 .pin-flag {
-    font-size: 40px;
-    margin-bottom: 8px;
+    font-size: 28px;
+    font-weight: 700;
+    background: var(--soft-bg);
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
 }
 
 .pin-card h3 {
     color: var(--accent);
     font-size: 20px;
+    margin-bottom: 4px;
 }
 
 .pin-country {
     color: var(--text-secondary);
     font-size: 13px;
+    margin-bottom: 8px;
 }
 
 .pin-year {
@@ -278,14 +315,18 @@ section h2 {
     color: var(--text-secondary);
     font-size: 13px;
     line-height: 1.6;
+    margin: 10px 0;
 }
 
-.pin-card span {
+.pin-distance {
     display: inline-block;
     margin-top: 12px;
     color: #4ecdc4;
     font-size: 12px;
     font-weight: 600;
+    background: rgba(78, 205, 196, 0.1);
+    padding: 4px 12px;
+    border-radius: 50px;
 }
 
 .journey-stats {
@@ -300,24 +341,34 @@ section h2 {
 
 .stat-item {
     text-align: center;
-    font-size: 26px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.stat-icon {
+    font-size: 28px;
 }
 
 .stat-item strong {
     display: block;
     color: var(--accent);
-    font-size: 28px;
+    font-size: 32px;
+    font-weight: 700;
 }
 
-.stat-item span {
-    display: block;
+.stat-item span:last-child {
     color: var(--text-secondary);
     font-size: 12px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-/* PROJECTS SECTION - FIXED ALIGNMENT */
+/* ========================================
+   PROJECTS SECTION
+   ======================================== */
+
 #projects {
     background: var(--bg-primary);
 }
@@ -338,7 +389,7 @@ section h2 {
     border-radius: 26px;
     overflow: hidden;
     box-shadow: var(--shadow);
-    transition: 0.2s;
+    transition: transform 0.2s, border-color 0.2s;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -359,7 +410,9 @@ section h2 {
     z-index: 2;
 }
 
+/* Fixed background for all projects */
 .project-visual {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
     min-height: 200px;
     padding: 30px 20px;
     color: white;
@@ -374,36 +427,32 @@ section h2 {
     width: 70px;
     height: 70px;
     object-fit: contain;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 16px;
     padding: 10px;
 }
 
 .project-emoji {
-    font-size: 56px;
+    font-size: 48px;
     margin-bottom: 12px;
 }
 
 .project-visual h3 {
     font-size: 24px;
-    margin-top: 8px;
     margin-bottom: 5px;
+    font-weight: 700;
 }
 
 .project-visual p {
-    opacity: 0.9;
+    opacity: 0.8;
     font-size: 13px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 100%;
 }
 
-/* Project Info - FIXED BUTTON ALIGNMENT */
+/* Project Info */
 .project-info {
     padding: 28px;
     flex: 1;
@@ -424,7 +473,7 @@ section h2 {
     margin-bottom: 16px;
 }
 
-/* Tags styling */
+/* Tags */
 .project-tags {
     display: flex;
     gap: 10px;
@@ -441,7 +490,7 @@ section h2 {
     font-weight: 500;
 }
 
-/* BUTTONS - FIXED ALIGNMENT */
+/* Buttons */
 .read-more-btn,
 .external-link-btn {
     width: 100%;
@@ -484,35 +533,72 @@ section h2 {
     transform: translateY(-2px);
 }
 
-/* Make sure buttons stack vertically */
-.project-info .read-more-btn,
-.project-info .external-link-btn {
-    margin-top: 8px;
-    width: 100%;
+/* ========================================
+   FILTER TABS
+   ======================================== */
+
+.filter-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
 }
 
-/* Background colors */
-.crow-bg {
-    background: linear-gradient(135deg, #1a472a, #0e2a1e);
+.filter-btn {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
 }
 
-.mobile-bg {
-    background: linear-gradient(135deg, #00b4db, #0083b0);
+.filter-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
 }
 
-.catchee-bg {
-    background: linear-gradient(135deg, #11998e, #38ef7d);
+.filter-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
 }
 
-.tomra-bg {
-    background: linear-gradient(135deg, #f093fb, #f5576c);
+/* Filter animation */
+.project-card {
+    transition: all 0.3s ease;
+    animation: fadeIn 0.4s ease;
 }
 
-.ludo-bg {
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+.project-card.hide {
+    display: none;
 }
 
-/* CONTACT */
+.project-card.show {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ========================================
+   CONTACT SECTION
+   ======================================== */
+
 .contact-section {
     padding: 120px 20px;
     background: var(--bg-secondary);
@@ -572,7 +658,7 @@ body.dark .contact-badge {
     align-items: center;
     gap: 15px;
     text-align: left;
-    transition: 0.35s ease;
+    transition: all 0.35s ease;
     position: relative;
     overflow: hidden;
     box-shadow: var(--shadow);
@@ -584,7 +670,7 @@ body.dark .contact-badge {
     inset: 0;
     background: linear-gradient(135deg, transparent, rgba(255,255,255,0.18));
     opacity: 0;
-    transition: 0.35s ease;
+    transition: opacity 0.35s ease;
 }
 
 .social-card:hover::before {
@@ -646,7 +732,10 @@ body.dark .contact-badge {
     color: #111;
 }
 
-/* MODAL */
+/* ========================================
+   MODAL
+   ======================================== */
+
 .modal {
     display: none;
     position: fixed;
@@ -674,6 +763,7 @@ body.dark .contact-badge {
     top: 18px;
     font-size: 34px;
     cursor: pointer;
+    transition: color 0.2s;
 }
 
 .close-modal:hover {
@@ -693,6 +783,7 @@ body.dark .contact-badge {
 .modal-section h4 {
     margin-bottom: 10px;
     font-size: 20px;
+    color: var(--text-primary);
 }
 
 .modal-section p,
@@ -714,7 +805,10 @@ body.dark .contact-badge {
     content: "✨ ";
 }
 
-/* ANIMATION */
+/* ========================================
+   ANIMATION
+   ======================================== */
+
 .fade-in {
     opacity: 0;
     transform: translateY(18px);
@@ -726,20 +820,28 @@ body.dark .contact-badge {
     transform: translateY(0);
 }
 
-/* RESPONSIVE */
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
 @media (max-width: 950px) {
-    .journey-pins,
+    .journey-pins {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
     .projects-grid {
         grid-template-columns: 1fr;
     }
-
+    
     .journey-stats {
         grid-template-columns: repeat(2, 1fr);
     }
-
+    
     .map-header {
         flex-direction: column;
         text-align: center;
+        justify-content: center;
     }
 }
 
@@ -749,36 +851,36 @@ body.dark .contact-badge {
         gap: 14px;
         padding: 0 20px;
     }
-
+    
     nav ul {
         gap: 25px;
     }
-
+    
     header h1 {
         font-size: 38px;
     }
-
+    
     section {
         padding: 45px 20px;
     }
-
+    
     section h2 {
         font-size: 32px;
     }
-
+    
     .profile-pic {
         width: 150px;
         height: 150px;
     }
-
+    
     .journey-map-container {
         padding: 20px;
     }
-
+    
     .journey-stats {
         grid-template-columns: 1fr;
     }
-
+    
     .modal-content {
         margin: 12% auto;
         padding: 30px 24px;
@@ -786,11 +888,6 @@ body.dark .contact-badge {
     
     .project-visual h3 {
         font-size: 20px;
-    }
-    
-    .project-visual p {
-        white-space: normal;
-        line-height: 1.3;
     }
     
     .read-more-btn,
@@ -804,74 +901,33 @@ body.dark .contact-badge {
         font-size: 10px;
         padding: 4px 10px;
     }
+    
+    .filter-tabs {
+        gap: 10px;
+    }
+    
+    .filter-btn {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
 }
 
 @media (max-width: 600px) {
+    .journey-pins {
+        grid-template-columns: 1fr;
+    }
+    
     .contact-section {
         padding: 80px 20px;
     }
-
+    
     .social-card {
         justify-content: center;
         text-align: center;
         flex-direction: column;
     }
-}
-
-/* FILTER TABS */
-.filter-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-}
-
-.filter-btn {
-    background: transparent;
-    border: 1px solid var(--border-color);
-    padding: 10px 24px;
-    border-radius: 50px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    color: var(--text-secondary);
-    transition: all 0.2s ease;
-}
-
-.filter-btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-}
-
-.filter-btn.active {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: white;
-}
-
-/* Filter animation */
-.project-card {
-    transition: all 0.3s ease;
-}
-
-.project-card.hide {
-    display: none;
-}
-
-.project-card.show {
-    display: flex;
-    animation: fadeInUp 0.4s ease;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    
+    .pin-card {
+        min-height: auto;
     }
 }

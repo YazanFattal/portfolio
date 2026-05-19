@@ -45,69 +45,89 @@
     <div class="journey-map-container fade-in">
         <div class="map-header">
             <div class="map-title">
-                <span>🗺️</span>
+                <span class="text-icon">🌍</span>
                 <span>My Path Across Continents</span>
             </div>
             <div class="total-distance">
-                📏 Total traveled: <strong>5,900+ km</strong>
+                <span class="text-icon">📏</span> Total traveled: <strong>5,900+ km</strong>
             </div>
         </div>
 
         <div class="journey-pins">
+            <!-- Damascus -->
             <div class="journey-pin fade-in">
                 <div class="pin-icon">📍</div>
                 <div class="pin-card">
-                    <div class="pin-flag">🇸🇾</div>
+                    <div class="pin-flag">SY</div>
                     <h3>Damascus</h3>
                     <p class="pin-country">Syria</p>
                     <p class="pin-year">2000 - 2002</p>
                     <p>Where my story began, building my roots, identity, and curiosity.</p>
-                    <span>Starting point</span>
+                    <span class="pin-distance">Starting point</span>
                 </div>
             </div>
 
+            <!-- Jeddah -->
             <div class="journey-pin fade-in">
                 <div class="pin-icon">📍</div>
                 <div class="pin-card">
-                    <div class="pin-flag">🇸🇦</div>
+                    <div class="pin-flag">SA</div>
                     <h3>Jeddah</h3>
                     <p class="pin-country">Saudi Arabia</p>
                     <p class="pin-year">2002 - 2016</p>
                     <p>A multicultural city where I learned adaptability and diversity.</p>
-                    <span>+1,320 km</span>
+                    <span class="pin-distance">+1,320 km</span>
                 </div>
             </div>
 
+            <!-- Valenciennes -->
             <div class="journey-pin fade-in">
                 <div class="pin-icon">📍</div>
                 <div class="pin-card">
-                    <div class="pin-flag">🇫🇷</div>
+                    <div class="pin-flag">FR</div>
                     <h3>Valenciennes</h3>
                     <p class="pin-country">France</p>
                     <p class="pin-year">2016 - 2019</p>
                     <p>High school years where I became more independent and creative.</p>
-                    <span>+4,200 km</span>
+                    <span class="pin-distance">+4,200 km</span>
                 </div>
             </div>
 
+            <!-- Eindhoven -->
             <div class="journey-pin fade-in">
                 <div class="pin-icon">📍</div>
                 <div class="pin-card">
-                    <div class="pin-flag">🇳🇱</div>
+                    <div class="pin-flag">NL</div>
                     <h3>Eindhoven</h3>
                     <p class="pin-country">Netherlands</p>
                     <p class="pin-year">2019 - Present</p>
                     <p>Studying Media Design & ICT and building projects with purpose.</p>
-                    <span>+380 km</span>
+                    <span class="pin-distance">+380 km</span>
                 </div>
             </div>
         </div>
 
         <div class="journey-stats">
-            <div class="stat-item">🌍 <strong>4</strong><span>Countries</span></div>
-            <div class="stat-item">🏠 <strong>4</strong><span>Cities</span></div>
-            <div class="stat-item">📏 <strong>5,900+</strong><span>Kilometers</span></div>
-            <div class="stat-item">🗣️ <strong>4</strong><span>Languages</span></div>
+            <div class="stat-item">
+                <span class="stat-icon">🌍</span>
+                <strong>4</strong>
+                <span>Countries</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-icon">🏠</span>
+                <strong>4</strong>
+                <span>Cities</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-icon">📏</span>
+                <strong>5,900+</strong>
+                <span>Kilometers</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-icon">💬</span>
+                <strong>4</strong>
+                <span>Languages</span>
+            </div>
         </div>
     </div>
 </section>
@@ -125,22 +145,21 @@
 
     <div class="projects-grid" id="projects-grid">
 
-        <!-- PROJECT 1 - CROW STUDIO (Game) -->
+        <!-- PROJECT 1 - CROW STUDIO -->
         <div class="project-card fade-in" data-category="game">
             <div class="project-number">01</div>
-            <div class="project-visual crow-bg">
-                <img src="logo.svg" alt="Crow Studio Logo" class="project-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-                <div class="project-emoji" style="display: none;">🎴</div>
+            <div class="project-visual project-bg">
+                <img src="logo.svg" alt="Crow Studio Logo" class="project-logo" onerror="this.style.display='none'">
                 <h3>Kauwe Bende</h3>
                 <p>UNO-style icebreaker game</p>
             </div>
             <div class="project-info">
-                <h3>🎴 Crow Studio</h3>
+                <h3>Crow Studio</h3>
                 <p>A playful card game helping young adults start deeper conversations in a low-pressure way.</p>
                 <div class="project-tags">
-                    <span>🎮 Game Design</span>
-                    <span>💬 Social Connection</span>
-                    <span>🔍 UX Research</span>
+                    <span>Game Design</span>
+                    <span>Social Connection</span>
+                    <span>UX Research</span>
                 </div>
                 <button onclick="openProjectModal('crow-studio')" class="read-more-btn">📖 View Case Study →</button>
                 <a href="https://portfolio.drieam.app/s/GuxUr36X/XNCJf29o6wbf2U2pjP8s2aYC" target="_blank" class="external-link-btn">🌐 View on Drieam →</a>
@@ -149,92 +168,89 @@
             </div>
         </div>
 
-        <!-- PROJECT 2 - SMART MOBILE (App) -->
+        <!-- PROJECT 2 - SMART MOBILE -->
         <div class="project-card fade-in" data-category="app">
             <div class="project-number">02</div>
-            <div class="project-visual mobile-bg">
-                <img src="fontys.jpg" alt="Smart Mobile Logo" class="project-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-                <div class="project-emoji" style="display: none;">📱</div>
+            <div class="project-visual project-bg">
+                <img src="fontys.jpg" alt="Smart Mobile Logo" class="project-logo" onerror="this.style.display='none'">
                 <h3>Smart Mobile</h3>
                 <p>Three app concepts</p>
             </div>
             <div class="project-info">
-                <h3>📱 Smart Mobile</h3>
+                <h3>Smart Mobile</h3>
                 <p>Three mobile app concepts focused on accessibility, support, sustainability, and simple navigation.</p>
                 <div class="project-tags">
-                    <span>🤖 Android</span>
-                    <span>🎨 UX/UI</span>
-                    <span>📲 Mobile Design</span>
+                    <span>Android</span>
+                    <span>UX/UI</span>
+                    <span>Mobile Design</span>
                 </div>
                 <button onclick="openProjectModal('smart-mobile')" class="read-more-btn">📖 View Case Study →</button>
                 <a href="https://portfolio.drieam.app/s/GuxUr36X/JVrign45XBMhA39RpCg93KWe" target="_blank" class="external-link-btn">🌐 View on Drieam →</a>
             </div>
         </div>
 
-        <!-- PROJECT 3 - CATCHEE (App) -->
+        <!-- PROJECT 3 - CATCHEE -->
         <div class="project-card fade-in" data-category="app">
             <div class="project-number">03</div>
-            <div class="project-visual catchee-bg">
-                <img src="catchee.png" alt="Catchee Logo" class="project-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-                <div class="project-emoji" style="display: none;">⚡</div>
+            <div class="project-visual project-bg">
+                <img src="catchee.png" alt="Catchee Logo" class="project-logo" onerror="this.style.display='none'">
                 <h3>Catchee</h3>
                 <p>Speed-meet Q&A game</p>
             </div>
             <div class="project-info">
-                <h3>⚡ Catchee</h3>
+                <h3>Catchee</h3>
                 <p>A speed-meet experience that helps people connect through timed questions and playful interaction.</p>
                 <div class="project-tags">
-                    <span>🌍 Social Impact</span>
-                    <span>💬 Q&A Game</span>
-                    <span>🎨 Figma</span>
+                    <span>Social Impact</span>
+                    <span>Q&A Game</span>
+                    <span>Figma</span>
                 </div>
                 <button onclick="openProjectModal('catchee')" class="read-more-btn">📖 View Case Study →</button>
                 <a href="https://www.youtube.com/watch?v=tyR4OhImVRY" target="_blank" class="external-link-btn">🎬 Watch Demo →</a>
             </div>
         </div>
 
-        <!-- PROJECT 4 - TOMRA (App) -->
+        <!-- PROJECT 4 - TOMRA -->
         <div class="project-card fade-in" data-category="app">
             <div class="project-number">04</div>
-            <div class="project-visual tomra-bg">
-                <img src="tomra.jpeg" alt="Tomra Logo" class="project-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-                <div class="project-emoji" style="display: none;">♻️</div>
+            <div class="project-visual project-bg">
+                <img src="tomra.jpeg" alt="Tomra Logo" class="project-logo" onerror="this.style.display='none'">
                 <h3>Tomra</h3>
                 <p>Smart recycling system</p>
             </div>
             <div class="project-info">
-                <h3>♻️ Tomra</h3>
+                <h3>Tomra</h3>
                 <p>A smart disassembly concept for improving recycling, sorting, and circular material recovery.</p>
                 <div class="project-tags">
-                    <span>🌱 Sustainability</span>
-                    <span>💼 Business</span>
-                    <span>🔄 Circular Economy</span>
+                    <span>Sustainability</span>
+                    <span>Business</span>
+                    <span>Circular Economy</span>
                 </div>
                 <button onclick="openProjectModal('tomra')" class="read-more-btn">📖 View Case Study →</button>
                 <a href="https://portfolio.drieam.app/s/GuxUr36X/8whNgDeemrG7FMAydgWiW9MG" target="_blank" class="external-link-btn">🌐 View on Drieam →</a>
             </div>
         </div>
 
-        <!-- PROJECT 5 - LUDO GAME (Game) -->
-        <div class="project-card fade-in" data-category="game">
-            <div class="project-number">05</div>
-            <div class="project-visual ludo-bg">
-                <div class="project-emoji">🎲</div>
-                <h3>Ludo Rush</h3>
-                <p>Roll. Unlock. Capture.</p>
-            </div>
-            <div class="project-info">
-                <h3>🎲 Ludo Game</h3>
-                <p>A complete digital Ludo board game with 4 tokens, dice sounds, capture mechanics, and AI opponents.</p>
-                <div class="project-tags">
-                    <span>🎮 Game Dev</span>
-                    <span>💻 JavaScript</span>
-                    <span>🖱️ Interactive</span>
-                </div>
-                <button onclick="openProjectModal('ludo-game')" class="read-more-btn">📖 View Case Study →</button>
-                <a href="https://yazanfattal.github.io/ludo-game/?v=3" target="_blank" class="external-link-btn">🎲 Play Ludo Game →</a>
-            </div>
+       <!-- PROJECT 5 - LUDO GAME (Emoji version - no logo) -->
+<div class="project-card fade-in" data-category="game">
+    <div class="project-number">05</div>
+    <div class="project-visual project-bg">
+        <div class="project-emoji">🎲</div>
+        <h3>Ludo Rush</h3>
+        <p>Roll. Unlock. Capture.</p>
+    </div>
+    <div class="project-info">
+        <h3>Ludo Game</h3>
+        <p>A complete digital Ludo board game with 4 tokens, dice sounds, capture mechanics, and AI opponents.</p>
+        <div class="project-tags">
+            <span>Game Dev</span>
+            <span>JavaScript</span>
+            <span>Interactive</span>
         </div>
+        <button onclick="openProjectModal('ludo-game')" class="read-more-btn">📖 View Case Study →</button>
+        <a href="https://yazanfattal.github.io/ludo-game/?v=3" target="_blank" class="external-link-btn">🎲 Play Ludo Game →</a>
+    </div>
+</div>
 
     </div>
 </section>
