@@ -582,140 +582,195 @@ section h2 {
 }
 
 /* ========================================
-   CONTACT SECTION
+   CONTACT SECTION - REDESIGNED
    ======================================== */
 
 .contact-section {
-    padding: 120px 20px;
+    padding: 80px 20px;
     background: var(--bg-secondary);
-    color: var(--text-primary);
-    text-align: center;
-    overflow: hidden;
+    position: relative;
 }
 
 .contact-container {
-    max-width: 950px;
-    margin: auto;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 60px;
 }
 
 .contact-badge {
     display: inline-block;
-    margin-bottom: 25px;
-    padding: 10px 18px;
-    border-radius: 999px;
-    background: rgba(247, 212, 74, 0.15);
-    border: 1px solid rgba(247, 212, 74, 0.5);
-    color: #c99a00;
-    font-weight: 700;
-}
-
-body.dark .contact-badge {
-    color: var(--yellow);
-}
-
-.contact-section h2 {
-    font-size: clamp(2.5rem, 6vw, 5rem);
+    background: rgba(255, 107, 107, 0.12);
+    color: var(--accent);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 500;
     margin-bottom: 20px;
+    letter-spacing: 0.5px;
+}
+
+.contact-header h2 {
+    font-size: 2.8rem;
+    margin-bottom: 16px;
     color: var(--text-primary);
 }
 
-.contact-section p {
+.contact-header p {
     color: var(--text-secondary);
-    line-height: 1.7;
-    margin: 0 auto 45px;
-    font-size: 1.15rem;
-    max-width: 700px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
-.social-links {
+/* Contact Methods Grid */
+.contact-methods {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 22px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
 }
 
-.social-card {
-    text-decoration: none;
-    color: var(--text-primary);
+.contact-method {
     background: var(--card-bg);
-    padding: 24px;
-    border-radius: 24px;
     border: 1px solid var(--border-color);
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    text-align: left;
-    transition: all 0.35s ease;
-    position: relative;
-    overflow: hidden;
+    border-radius: 20px;
+    padding: 32px 24px;
+    text-align: center;
+    transition: all 0.25s ease;
+}
+
+.contact-method:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
     box-shadow: var(--shadow);
 }
 
-.social-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, transparent, rgba(255,255,255,0.18));
-    opacity: 0;
-    transition: opacity 0.35s ease;
+.method-icon {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
 }
 
-.social-card:hover::before {
-    opacity: 1;
+.contact-method h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 8px;
 }
 
-.social-card:hover {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.18);
-}
-
-.social-icon {
-    font-size: 2rem;
-    z-index: 1;
-}
-
-.social-card span {
-    z-index: 1;
-}
-
-.social-card strong {
-    display: block;
-    font-size: 1.2rem;
-    color: var(--text-primary);
-}
-
-.social-card small {
+.contact-method p {
     color: var(--text-secondary);
     font-size: 0.85rem;
+    margin-bottom: 16px;
 }
 
-.youtube:hover {
-    background: #ff0033;
+.method-link {
+    display: inline-block;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: gap 0.2s;
+}
+
+.method-link:hover {
+    text-decoration: underline;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.social-icon-link {
+    background: var(--soft-bg);
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 40px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border: 1px solid var(--border-color);
+}
+
+.social-icon-link:hover {
+    background: var(--accent);
     color: white;
+    border-color: var(--accent);
+    transform: translateY(-2px);
 }
 
-.github:hover {
-    background: #24292e;
-    color: white;
+.location-note {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: #4ecdc4;
+    background: rgba(78, 205, 196, 0.1);
+    padding: 5px 12px;
+    border-radius: 50px;
+    margin-top: 8px;
 }
 
-.linkedin:hover {
-    background: #0077b5;
-    color: white;
+/* Contact Footer */
+.contact-footer {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
 }
 
-.email:hover {
-    background: var(--yellow);
-    color: #111;
+.contact-footer p {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
 }
 
-.youtube:hover strong, .youtube:hover small,
-.github:hover strong, .github:hover small,
-.linkedin:hover strong, .linkedin:hover small {
-    color: white;
+/* Responsive */
+@media (max-width: 850px) {
+    .contact-methods {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .contact-header h2 {
+        font-size: 2.2rem;
+    }
+    
+    .contact-header p {
+        font-size: 1rem;
+    }
 }
 
-.email:hover strong, .email:hover small {
-    color: #111;
+@media (max-width: 600px) {
+    .contact-section {
+        padding: 60px 20px;
+    }
+    
+    .contact-method {
+        padding: 24px 20px;
+    }
+    
+    .method-icon {
+        font-size: 2rem;
+    }
+    
+    .contact-method h3 {
+        font-size: 1.2rem;
+    }
+    
+    .social-icons {
+        gap: 10px;
+    }
+    
+    .social-icon-link {
+        padding: 6px 14px;
+        font-size: 0.8rem;
+    }
 }
 
 /* ========================================
