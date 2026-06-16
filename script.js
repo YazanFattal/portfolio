@@ -78,6 +78,8 @@ const projectDetails = {
         tools: ['Figma', 'UX/UI Design', 'Mobile Design', 'Prototyping'],
         links: [
             { label: 'New Roots Demo', url: 'https://www.youtube.com/shorts/HM3XsdPDK-A' },
+            { label: 'Plant Pals Demo', url: 'https://www.youtube.com/shorts/S9eL20umfic' },
+            { label: 'OFF Demo', url: 'https://www.youtube.com/shorts/SIG6u2Z6D8c' },    
             { label: 'View on Drieam', url: 'https://portfolio.drieam.app/s/GuxUr36X/JVrign45XBMhA39RpCg93KWe' }
         ]
     },
