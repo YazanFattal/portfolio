@@ -1,4 +1,7 @@
-// ===== THEME SWITCHING =====
+// ========================================
+// THEME SWITCHING
+// ========================================
+
 const themeSwitch = document.getElementById('theme-switch');
 const savedTheme = localStorage.getItem('theme');
 
@@ -17,7 +20,10 @@ if (themeSwitch) {
     });
 }
 
-// ===== FADE-IN ANIMATION (Original) =====
+// ========================================
+// FADE-IN ANIMATION
+// ========================================
+
 const fadeElements = document.querySelectorAll('.fade-in');
 const fadeObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -29,34 +35,29 @@ const fadeObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '50px' });
 fadeElements.forEach(el => fadeObserver.observe(el));
 
-// ===== SECTION REVEAL ON SCROLL =====
+// ========================================
+// SECTION REVEAL ON SCROLL
+// ========================================
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Observe all sections
     const sections = document.querySelectorAll('section');
     
-    // First, make all sections visible by default
     sections.forEach(section => {
         section.classList.add('section-reveal', 'visible');
     });
     
-    // Then set up observer to add hidden class when not in view
     const sectionObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.remove('hidden');
                 entry.target.classList.add('visible');
                 
-                // Add visible class to children for staggered effect
                 const cards = entry.target.querySelectorAll('.journey-pin, .project-card, .contact-method');
                 cards.forEach((card, index) => {
                     setTimeout(() => {
                         card.classList.add('visible');
                     }, index * 100);
                 });
-            } else {
-                // Optional: uncomment to hide sections when scrolled past
-                // entry.target.classList.add('hidden');
-                // entry.target.classList.remove('visible');
             }
         });
     }, {
@@ -68,9 +69,20 @@ document.addEventListener('DOMContentLoaded', function() {
         sectionObserver.observe(section);
     });
 
-    // ===== NAVIGATION HIGHLIGHT ON SCROLL =====
+    // ========================================
+    // NAVIGATION HIGHLIGHT - WORKING VERSION
+    // ========================================
+
     const navLinks = document.querySelectorAll('nav a');
-    const sectionsForNav = document.querySelectorAll('section[id]');
+    
+    // Get all sections that have an id
+    const allSections = document.querySelectorAll('section[id]');
+    
+    // Create an array of section ids
+    const sectionIds = [];
+    allSections.forEach(section => {
+        sectionIds.push(section.getAttribute('id'));
+    });
 
     const navObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -78,22 +90,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 const id = entry.target.getAttribute('id');
                 navLinks.forEach(link => {
                     link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${id}`) {
+                    // Get the href without the # symbol
+                    const linkHref = link.getAttribute('href').replace('#', '');
+                    if (linkHref === id) {
                         link.classList.add('active');
                     }
                 });
             }
         });
     }, {
-        threshold: 0.4
+        threshold: 0.3
     });
 
-    sectionsForNav.forEach(section => {
+    allSections.forEach(section => {
         navObserver.observe(section);
+    });
+
+    // Also highlight on click
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+        });
     });
 });
 
-// ===== FILTER FUNCTIONALITY =====
+// ========================================
+// FILTER FUNCTIONALITY
+// ========================================
+
 const filterButtons = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 
@@ -114,7 +139,10 @@ filterButtons.forEach(button => {
     });
 });
 
-// ===== MODAL FUNCTIONALITY =====
+// ========================================
+// MODAL FUNCTIONALITY
+// ========================================
+
 const modal = document.getElementById('projectModal');
 const closeModalBtn = document.querySelector('.close-modal');
 const modalBody = document.getElementById('modal-body');
@@ -134,46 +162,45 @@ const projectDetails = {
         ]
     },
     'smart-mobile': {
-        title: 'Smart Mobile - Three App Concepts',
-        overview: 'Smart Mobile includes three mobile app concepts: New Roots, Sensory Space, and Plant Tree. Each concept focuses on a different user need and shows my ability to design mobile-first experiences.',
-        problem: 'Many apps are visually busy or difficult to navigate, especially for users who need support, calmness, or education.',
-        solution: 'I created simple mobile interfaces with clear navigation, soft visual hierarchy, and user-friendly layouts.',
-        role: 'I worked on app concepts, responsive iPhone-style templates, user journeys, and demo videos for presenting the ideas.',
-        tools: ['Figma', 'UX/UI Design', 'Mobile Design', 'Prototyping'],
+        title: 'Smart Mobile',
+        overview: 'Three mobile app concepts: New Roots, Sensory Space, and Plant Tree.',
+        problem: 'Many apps are visually busy or difficult to navigate.',
+        solution: 'Simple mobile interfaces with clear navigation and user-friendly layouts.',
+        role: 'App concepts, user journeys, demo videos.',
+        tools: ['Figma', 'UX/UI Design', 'Mobile Design'],
         links: [
-            { label: 'New Roots Demo', url: 'https://www.youtube.com/shorts/HM3XsdPDK-A' },
             { label: 'View on Drieam', url: 'https://portfolio.drieam.app/s/GuxUr36X/JVrign45XBMhA39RpCg93KWe' }
         ]
     },
     'catchee': {
         title: 'Catchee - Speed-meet Q&A Game',
-        overview: 'Catchee is a speed-meet Q&A game created to help people make new social connections through timed conversations, playful questions, and a friendly visual identity.',
-        problem: 'People experiencing loneliness often struggle to meet others because starting a conversation can feel awkward or stressful.',
-        solution: 'Catchee makes meeting people easier by turning the first conversation into a guided, playful experience.',
-        role: 'I contributed to the visual direction, user journey, prototype screens, storytelling, and presentation material.',
-        tools: ['Figma', 'UX Research', 'Visual Design', 'Prototyping'],
+        overview: 'A speed-meet Q&A game helping people make new social connections.',
+        problem: 'Starting conversations can feel awkward or stressful.',
+        solution: 'Turning the first conversation into a guided, playful experience.',
+        role: 'Visual direction, user journey, prototype screens.',
+        tools: ['Figma', 'UX Research', 'Visual Design'],
         links: [
-            { label: 'Watch Demo Video', url: 'https://www.youtube.com/watch?v=tyR4OhImVRY' }
+            { label: 'Watch Demo', url: 'https://www.youtube.com/watch?v=tyR4OhImVRY' }
         ]
     },
     'tomra': {
         title: 'Tomra - Smart Recycling System',
-        overview: 'Tomra is a sustainability-focused concept about improving can recycling through smart disassembly, sorting, and circular economy thinking.',
-        problem: 'Recycling processes can be inefficient when materials are not sorted or prepared correctly.',
-        solution: 'The concept focuses on a smarter system that identifies and supports better material recovery.',
-        role: 'I contributed to research, concept explanation, business thinking, and portfolio presentation.',
-        tools: ['Research', 'Sustainability', 'Concept Design', 'Business Thinking'],
+        overview: 'A sustainability-focused concept for improving can recycling.',
+        problem: 'Recycling processes are inefficient when materials are not sorted correctly.',
+        solution: 'A smarter system that identifies and supports better material recovery.',
+        role: 'Research, concept explanation, business thinking.',
+        tools: ['Research', 'Sustainability', 'Concept Design'],
         links: [
             { label: 'View on Drieam', url: 'https://portfolio.drieam.app/s/GuxUr36X/8whNgDeemrG7FMAydgWiW9MG' }
         ]
     },
     'ludo-game': {
         title: 'Ludo Rush - Digital Board Game',
-        overview: 'Ludo Rush is a fully interactive, browser-based Ludo game built with HTML, CSS, and JavaScript. It features a complete game engine, turn-based mechanics, and a clean, responsive interface.',
-        problem: 'The goal was to create a faithful digital recreation of the classic Ludo board game that is fun, intuitive, and bug-free.',
-        solution: 'I developed a complete game logic system to handle dice rolls, token movement, collision detection, capturing, safe zones, and win conditions.',
-        role: 'I was the sole developer, responsible for all aspects: game logic, user interface, design, sound integration, and testing.',
-        tools: ['HTML5', 'CSS3', 'JavaScript', 'Game Logic', 'Audio API'],
+        overview: 'A browser-based Ludo game with complete game engine.',
+        problem: 'Creating a faithful digital recreation of classic Ludo.',
+        solution: 'Game logic for dice rolls, token movement, capturing, and win conditions.',
+        role: 'Sole developer - game logic, UI, design, testing.',
+        tools: ['HTML5', 'CSS3', 'JavaScript', 'Game Logic'],
         links: [
             { label: 'Play Ludo Game', url: 'https://yazanfattal.github.io/ludo-game/?v=3' }
         ]
