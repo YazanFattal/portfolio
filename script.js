@@ -1,4 +1,4 @@
-// Theme switching
+// ===== THEME SWITCHING =====
 const themeSwitch = document.getElementById('theme-switch');
 const savedTheme = localStorage.getItem('theme');
 
@@ -17,19 +17,83 @@ if (themeSwitch) {
     });
 }
 
-// Fade-in animation
+// ===== FADE-IN ANIMATION (Original) =====
 const fadeElements = document.querySelectorAll('.fade-in');
-const observer = new IntersectionObserver((entries) => {
+const fadeObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('show');
-            observer.unobserve(entry.target);
+            fadeObserver.unobserve(entry.target);
         }
     });
 }, { threshold: 0.1, rootMargin: '50px' });
-fadeElements.forEach(el => observer.observe(el));
+fadeElements.forEach(el => fadeObserver.observe(el));
 
-// Filter functionality
+// ===== SECTION REVEAL ON SCROLL =====
+document.addEventListener('DOMContentLoaded', function() {
+    // Observe all sections
+    const sections = document.querySelectorAll('section');
+    
+    // First, make all sections visible by default
+    sections.forEach(section => {
+        section.classList.add('section-reveal', 'visible');
+    });
+    
+    // Then set up observer to add hidden class when not in view
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.remove('hidden');
+                entry.target.classList.add('visible');
+                
+                // Add visible class to children for staggered effect
+                const cards = entry.target.querySelectorAll('.journey-pin, .project-card, .contact-method');
+                cards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('visible');
+                    }, index * 100);
+                });
+            } else {
+                // Optional: uncomment to hide sections when scrolled past
+                // entry.target.classList.add('hidden');
+                // entry.target.classList.remove('visible');
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
+
+    // ===== NAVIGATION HIGHLIGHT ON SCROLL =====
+    const navLinks = document.querySelectorAll('nav a');
+    const sectionsForNav = document.querySelectorAll('section[id]');
+
+    const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, {
+        threshold: 0.4
+    });
+
+    sectionsForNav.forEach(section => {
+        navObserver.observe(section);
+    });
+});
+
+// ===== FILTER FUNCTIONALITY =====
 const filterButtons = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 
@@ -50,7 +114,7 @@ filterButtons.forEach(button => {
     });
 });
 
-// Modal functionality with full case study content
+// ===== MODAL FUNCTIONALITY =====
 const modal = document.getElementById('projectModal');
 const closeModalBtn = document.querySelector('.close-modal');
 const modalBody = document.getElementById('modal-body');
@@ -78,8 +142,6 @@ const projectDetails = {
         tools: ['Figma', 'UX/UI Design', 'Mobile Design', 'Prototyping'],
         links: [
             { label: 'New Roots Demo', url: 'https://www.youtube.com/shorts/HM3XsdPDK-A' },
-            { label: 'Plant Pals Demo', url: 'https://www.youtube.com/shorts/S9eL20umfic' },
-            { label: 'OFF Demo', url: 'https://www.youtube.com/shorts/SIG6u2Z6D8c' },    
             { label: 'View on Drieam', url: 'https://portfolio.drieam.app/s/GuxUr36X/JVrign45XBMhA39RpCg93KWe' }
         ]
     },

@@ -37,6 +37,11 @@ body {
     overflow-x: hidden;
 }
 
+/* ===== SMOOTH SCROLL BEHAVIOR ===== */
+html {
+    scroll-behavior: smooth;
+}
+
 /* ===== NAVIGATION ===== */
 nav {
     position: fixed;
@@ -48,6 +53,7 @@ nav {
     padding: 15px 0;
     z-index: 1000;
     backdrop-filter: blur(12px);
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
 }
 
 .nav-container {
@@ -75,11 +81,18 @@ nav a {
     text-decoration: none;
     color: var(--text-primary);
     font-weight: 500;
-    transition: color 0.2s;
+    transition: color 0.2s, background 0.2s;
+    padding: 6px 12px;
+    border-radius: 20px;
 }
 
 nav a:hover {
     color: var(--accent);
+}
+
+nav a.active {
+    color: var(--accent);
+    background: rgba(255, 107, 107, 0.1);
 }
 
 .theme-btn {
@@ -182,6 +195,24 @@ section h2 {
     background: var(--bg-secondary);
 }
 
+/* ===== SECTION REVEAL ANIMATIONS ===== */
+.section-reveal {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-reveal.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.section-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 /* ===== JOURNEY SECTION ===== */
 .journey-map-container {
     max-width: 1200px;
@@ -231,7 +262,20 @@ section h2 {
 
 .journey-pin {
     text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
+
+.journey-pin.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.journey-pin:nth-child(1) { transition-delay: 0.05s; }
+.journey-pin:nth-child(2) { transition-delay: 0.1s; }
+.journey-pin:nth-child(3) { transition-delay: 0.15s; }
+.journey-pin:nth-child(4) { transition-delay: 0.2s; }
 
 .pin-card {
     background: var(--bg-secondary);
@@ -380,11 +424,28 @@ section h2 {
     border: 1px solid var(--border-color);
     border-radius: 26px;
     overflow: hidden;
-    transition: transform 0.2s, border-color 0.2s;
     display: flex;
     flex-direction: column;
     height: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.2s, box-shadow 0.2s;
 }
+
+.project-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card:nth-child(1) { transition-delay: 0.05s; }
+.project-card:nth-child(2) { transition-delay: 0.1s; }
+.project-card:nth-child(3) { transition-delay: 0.15s; }
+.project-card:nth-child(4) { transition-delay: 0.2s; }
+.project-card:nth-child(5) { transition-delay: 0.25s; }
+.project-card:nth-child(6) { transition-delay: 0.3s; }
+.project-card:nth-child(7) { transition-delay: 0.35s; }
+.project-card:nth-child(8) { transition-delay: 0.4s; }
+.project-card:nth-child(9) { transition-delay: 0.45s; }
 
 .project-card:hover {
     transform: translateY(-5px);
@@ -602,7 +663,19 @@ section h2 {
     border-radius: 20px;
     padding: 32px 24px;
     transition: all 0.25s;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.25s, box-shadow 0.25s;
 }
+
+.contact-method.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-method:nth-child(1) { transition-delay: 0.05s; }
+.contact-method:nth-child(2) { transition-delay: 0.1s; }
+.contact-method:nth-child(3) { transition-delay: 0.15s; }
 
 .contact-method:hover {
     transform: translateY(-5px);
@@ -803,7 +876,6 @@ section h2 {
 }
 
 @media (max-width: 768px) {
-    /* Navigation */
     .nav-container {
         flex-direction: column;
         gap: 12px;
@@ -818,6 +890,12 @@ section h2 {
     
     nav a {
         font-size: 14px;
+        padding: 6px 12px;
+    }
+    
+    nav a:active {
+        background: rgba(255, 107, 107, 0.1);
+        color: var(--accent);
     }
     
     .theme-btn {
@@ -825,7 +903,6 @@ section h2 {
         font-size: 14px;
     }
     
-    /* Hero */
     header {
         padding-top: 130px;
         padding-bottom: 40px;
@@ -850,16 +927,21 @@ section h2 {
         padding: 6px 16px;
     }
     
-    /* General */
     section {
         padding: 45px 20px;
+        transition: padding 0.3s ease;
     }
     
     section h2 {
         font-size: 32px;
     }
     
-    /* Journey */
+    .section-reveal.hidden {
+        transform: translateY(20px);
+        transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
     .journey-map-container {
         padding: 20px;
     }
@@ -908,7 +990,6 @@ section h2 {
         padding: 2px 8px;
     }
     
-    /* Projects */
     .projects-grid {
         gap: 20px;
     }
@@ -970,7 +1051,6 @@ section h2 {
         font-size: 12px;
     }
     
-    /* Filter tabs */
     .filter-tabs {
         gap: 10px;
         margin-bottom: 25px;
@@ -981,7 +1061,6 @@ section h2 {
         font-size: 12px;
     }
     
-    /* Contact */
     .contact-section {
         padding: 40px 16px 20px 16px;
     }
@@ -1036,7 +1115,6 @@ section h2 {
         font-size: 0.65rem;
     }
     
-    /* Modal */
     .modal-content {
         padding: 30px 24px;
         margin: 10% auto;
@@ -1067,7 +1145,6 @@ section h2 {
 }
 
 @media (max-width: 480px) {
-    /* Navigation */
     nav ul {
         gap: 15px;
     }
@@ -1076,7 +1153,6 @@ section h2 {
         font-size: 13px;
     }
     
-    /* Hero */
     header h1 {
         font-size: 28px;
     }
@@ -1085,7 +1161,6 @@ section h2 {
         font-size: 14px;
     }
     
-    /* Contact */
     .contact-section {
         padding: 30px 12px 15px 12px;
     }
@@ -1109,5 +1184,22 @@ section h2 {
     
     .location-note {
         font-size: 0.6rem;
+    }
+}
+
+/* ===== IOS SMOOTH SCROLL FIX ===== */
+@supports (-webkit-touch-callout: none) {
+    html {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* ===== REDUCED MOTION PREFERENCE ===== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
     }
 }
