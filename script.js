@@ -70,47 +70,83 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // ========================================
-    // NAVIGATION HIGHLIGHT - WORKING VERSION
+    // NAVIGATION HIGHLIGHT - FIXED ALL TABS
     // ========================================
 
     const navLinks = document.querySelectorAll('nav a');
-    
-    // Get all sections that have an id
     const allSections = document.querySelectorAll('section[id]');
     
-    // Create an array of section ids
-    const sectionIds = [];
-    allSections.forEach(section => {
-        sectionIds.push(section.getAttribute('id'));
-    });
+    // Map section IDs to nav link hrefs
+    const sectionMap = {
+        'about': 'about',
+        'projects': 'projects',  // or 'work' if that's your href
+        'contact': 'contact'
+    };
 
-    const navObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    // Get the href without the # symbol
-                    const linkHref = link.getAttribute('href').replace('#', '');
-                    if (linkHref === id) {
-                        link.classList.add('active');
-                    }
-                });
+    function updateActiveNav() {
+        let currentSection = '';
+        let maxVisibility = 0;
+        
+        allSections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            
+            // Calculate how much of the section is visible
+            const visibleTop = Math.max(0, rect.top);
+            const visibleBottom = Math.min(windowHeight, rect.bottom);
+            const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+            const visibilityRatio = visibleHeight / rect.height;
+            
+            // Also check if the section is near the top of the viewport
+            const isNearTop = rect.top <= 100 && rect.bottom > 100;
+            
+            // If this section is more visible than the current one, select it
+            if (visibilityRatio > maxVisibility || isNearTop) {
+                maxVisibility = visibilityRatio;
+                currentSection = section.getAttribute('id');
             }
         });
-    }, {
-        threshold: 0.3
-    });
+        
+        // If no section is found, keep the current one
+        if (!currentSection) {
+            return;
+        }
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const linkHref = link.getAttribute('href').replace('#', '');
+            // Use the map to match section to nav link
+            if (sectionMap[currentSection] === linkHref) {
+                link.classList.add('active');
+            }
+        });
+    }
 
-    allSections.forEach(section => {
-        navObserver.observe(section);
-    });
+    // Debounce scroll events for better performance
+    let scrollTimeout;
+    function handleScroll() {
+        if (scrollTimeout) return;
+        scrollTimeout = setTimeout(() => {
+            updateActiveNav();
+            scrollTimeout = null;
+        }, 50);
+    }
 
-    // Also highlight on click
+    // Update on scroll with debounce
+    window.addEventListener('scroll', handleScroll);
+    
+    // Update on resize
+    window.addEventListener('resize', updateActiveNav);
+    
+    // Update on load
+    setTimeout(updateActiveNav, 100);
+
+    // Also update on click
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function(e) {
             navLinks.forEach(l => l.classList.remove('active'));
             this.classList.add('active');
+            setTimeout(updateActiveNav, 300);
         });
     });
 });
@@ -150,14 +186,14 @@ const modalBody = document.getElementById('modal-body');
 const projectDetails = {
     'crow-studio': {
         title: 'Crow Studio - Kauwe Bende',
-        overview: 'Kauwe Bende is an icebreaker game designed to help young adults connect through self-reflection questions. Instead of only focusing on winning, the game encourages players to open up, laugh, and share personal experiences.',
-        problem: 'Loneliness is increasing among young adults, and many people find it difficult to start meaningful conversations in a natural way.',
-        solution: 'We designed a familiar card-game format with deeper icebreaker questions, making conversations feel playful instead of awkward.',
-        role: 'I contributed to the concept, digital game version, design decisions, portfolio presentation, and improving the interactive experience.',
+        overview: 'Kauwe Bende is a UNO-style card game designed to help young adults connect through self-reflection questions.',
+        problem: 'Loneliness is increasing among young adults, making it difficult to start meaningful conversations.',
+        solution: 'A familiar card-game format with deeper icebreaker questions, making conversations feel playful.',
+        role: 'Concept, digital game version, design decisions, portfolio presentation.',
         tools: ['HTML', 'CSS', 'JavaScript', 'Game Design', 'UX Thinking', 'Playtesting'],
         links: [
-            { label: 'Play Desktop Version', url: 'https://yazanfattal.github.io/kauweBende/' },
-            { label: 'Play Mobile Version', url: 'https://yazanfattal.github.io/kauweBendeMobileVersion/' },
+            { label: 'Play Desktop', url: 'https://yazanfattal.github.io/kauweBende/' },
+            { label: 'Play Mobile', url: 'https://yazanfattal.github.io/kauweBendeMobileVersion/' },
             { label: 'View on Drieam', url: 'https://portfolio.drieam.app/s/GuxUr36X/XNCJf29o6wbf2U2pjP8s2aYC' }
         ]
     },
