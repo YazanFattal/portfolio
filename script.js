@@ -1,187 +1,28 @@
-// ========================================
-// THEME SWITCHING
-// ========================================
-
-const themeSwitch = document.getElementById('theme-switch');
-const savedTheme = localStorage.getItem('theme');
-
-if (savedTheme === 'dark') {
-    document.body.classList.add('dark');
-} else if (savedTheme === 'light') {
-    document.body.classList.remove('dark');
-} else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    document.body.classList.add('dark');
-}
-
-if (themeSwitch) {
-    themeSwitch.addEventListener('click', () => {
-        document.body.classList.toggle('dark');
-        localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
-    });
-}
-
-// ========================================
-// FADE-IN ANIMATION
-// ========================================
-
-const fadeElements = document.querySelectorAll('.fade-in');
-const fadeObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-            fadeObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.1, rootMargin: '50px' });
-fadeElements.forEach(el => fadeObserver.observe(el));
-
-// ========================================
-// SECTION REVEAL ON SCROLL
-// ========================================
-
-document.addEventListener('DOMContentLoaded', function() {
-    const sections = document.querySelectorAll('section');
-    
-    sections.forEach(section => {
-        section.classList.add('section-reveal', 'visible');
-    });
-    
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.remove('hidden');
-                entry.target.classList.add('visible');
-                
-                const cards = entry.target.querySelectorAll('.journey-pin, .project-card, .contact-method');
-                cards.forEach((card, index) => {
-                    setTimeout(() => {
-                        card.classList.add('visible');
-                    }, index * 100);
-                });
-            }
-        });
-    }, {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
-    });
-
-    sections.forEach(section => {
-        sectionObserver.observe(section);
-    });
-
-    // ========================================
-    // NAVIGATION HIGHLIGHT - FIXED ALL TABS
-    // ========================================
-
-    const navLinks = document.querySelectorAll('nav a');
-    const allSections = document.querySelectorAll('section[id]');
-    
-    // Map section IDs to nav link hrefs
-    const sectionMap = {
-        'about': 'about',
-        'projects': 'projects',  // or 'work' if that's your href
-        'contact': 'contact'
-    };
-
-    function updateActiveNav() {
-        let currentSection = '';
-        let maxVisibility = 0;
-        
-        allSections.forEach(section => {
-            const rect = section.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-            
-            // Calculate how much of the section is visible
-            const visibleTop = Math.max(0, rect.top);
-            const visibleBottom = Math.min(windowHeight, rect.bottom);
-            const visibleHeight = Math.max(0, visibleBottom - visibleTop);
-            const visibilityRatio = visibleHeight / rect.height;
-            
-            // Also check if the section is near the top of the viewport
-            const isNearTop = rect.top <= 100 && rect.bottom > 100;
-            
-            // If this section is more visible than the current one, select it
-            if (visibilityRatio > maxVisibility || isNearTop) {
-                maxVisibility = visibilityRatio;
-                currentSection = section.getAttribute('id');
-            }
-        });
-        
-        // If no section is found, keep the current one
-        if (!currentSection) {
-            return;
-        }
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            const linkHref = link.getAttribute('href').replace('#', '');
-            // Use the map to match section to nav link
-            if (sectionMap[currentSection] === linkHref) {
-                link.classList.add('active');
-            }
-        });
-    }
-
-    // Debounce scroll events for better performance
-    let scrollTimeout;
-    function handleScroll() {
-        if (scrollTimeout) return;
-        scrollTimeout = setTimeout(() => {
-            updateActiveNav();
-            scrollTimeout = null;
-        }, 50);
-    }
-
-    // Update on scroll with debounce
-    window.addEventListener('scroll', handleScroll);
-    
-    // Update on resize
-    window.addEventListener('resize', updateActiveNav);
-    
-    // Update on load
-    setTimeout(updateActiveNav, 100);
-
-    // Also update on click
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            navLinks.forEach(l => l.classList.remove('active'));
-            this.classList.add('active');
-            setTimeout(updateActiveNav, 300);
-        });
-    });
-});
-
-// ========================================
-// FILTER FUNCTIONALITY
-// ========================================
-
+// Project filters.
 const filterButtons = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 
 filterButtons.forEach(button => {
     button.addEventListener('click', () => {
-        filterButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        const filterValue = button.getAttribute('data-filter');
+        filterButtons.forEach(item => {
+            const selected = item === button;
+            item.classList.toggle('active', selected);
+            item.setAttribute('aria-pressed', String(selected));
+        });
+        const category = button.dataset.filter;
         projectCards.forEach(card => {
-            if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                card.classList.remove('hide');
-                card.classList.add('show');
-            } else {
-                card.classList.remove('show');
-                card.classList.add('hide');
-            }
+            const visible = category === 'all' || card.dataset.category === category;
+            card.classList.toggle('hide', !visible);
+            card.classList.toggle('show', visible);
         });
     });
 });
 
-// ========================================
-// MODAL FUNCTIONALITY
-// ========================================
-
+// Preserve the full original case studies.
 const modal = document.getElementById('projectModal');
-const closeModalBtn = document.querySelector('.close-modal');
 const modalBody = document.getElementById('modal-body');
+const closeModalBtn = document.querySelector('.close-modal');
+let modalTrigger = null;
 
 const projectDetails = {
     'crow-studio': {
@@ -198,61 +39,64 @@ const projectDetails = {
         ]
     },
     'smart-mobile': {
-        title: 'Smart Mobile',
-        overview: 'Three mobile app concepts: New Roots, Sensory Space, and Plant Tree.',
-        problem: 'Many apps are visually busy or difficult to navigate.',
-        solution: 'Simple mobile interfaces with clear navigation and user-friendly layouts.',
-        role: 'App concepts, user journeys, demo videos.',
-        tools: ['Figma', 'UX/UI Design', 'Mobile Design'],
+        title: 'Smart Mobile - Three App Concepts',
+        overview: 'Smart Mobile includes three mobile app concepts: New Roots, Sensory Space, and Plant Tree. Each concept focuses on a different user need and shows my ability to design mobile-first experiences.',
+        problem: 'Many apps are visually busy or difficult to navigate, especially for users who need support, calmness, or education.',
+        solution: 'I created simple mobile interfaces with clear navigation, soft visual hierarchy, and user-friendly layouts.',
+        role: 'I worked on app concepts, responsive iPhone-style templates, user journeys, and demo videos for presenting the ideas.',
+        tools: ['Figma', 'UX/UI Design', 'Mobile Design', 'Prototyping'],
         links: [
+            { label: 'New Roots Demo', url: 'https://www.youtube.com/shorts/HM3XsdPDK-A' },
+            { label: 'Plant Pals Demo', url: 'https://www.youtube.com/shorts/S9eL20umfic' },
+            { label: 'OFF Demo', url: 'https://www.youtube.com/shorts/SIG6u2Z6D8c' },
             { label: 'View on Drieam', url: 'https://portfolio.drieam.app/s/GuxUr36X/JVrign45XBMhA39RpCg93KWe' }
         ]
     },
     'catchee': {
         title: 'Catchee - Speed-meet Q&A Game',
-        overview: 'A speed-meet Q&A game helping people make new social connections.',
-        problem: 'Starting conversations can feel awkward or stressful.',
-        solution: 'Turning the first conversation into a guided, playful experience.',
-        role: 'Visual direction, user journey, prototype screens.',
-        tools: ['Figma', 'UX Research', 'Visual Design'],
+        overview: 'Catchee is a speed-meet Q&A game created to help people make new social connections through timed conversations, playful questions, and a friendly visual identity.',
+        problem: 'People experiencing loneliness often struggle to meet others because starting a conversation can feel awkward or stressful.',
+        solution: 'Catchee makes meeting people easier by turning the first conversation into a guided, playful experience.',
+        role: 'I contributed to the visual direction, user journey, prototype screens, storytelling, and presentation material.',
+        tools: ['Figma', 'UX Research', 'Visual Design', 'Prototyping'],
         links: [
-            { label: 'Watch Demo', url: 'https://www.youtube.com/watch?v=tyR4OhImVRY' }
+            { label: 'Watch Demo Video', url: 'https://www.youtube.com/watch?v=tyR4OhImVRY' }
         ]
     },
     'tomra': {
         title: 'Tomra - Smart Recycling System',
-        overview: 'A sustainability-focused concept for improving can recycling.',
-        problem: 'Recycling processes are inefficient when materials are not sorted correctly.',
-        solution: 'A smarter system that identifies and supports better material recovery.',
-        role: 'Research, concept explanation, business thinking.',
-        tools: ['Research', 'Sustainability', 'Concept Design'],
+        overview: 'Tomra is a sustainability-focused concept about improving can recycling through smart disassembly, sorting, and circular economy thinking.',
+        problem: 'Recycling processes can be inefficient when materials are not sorted or prepared correctly.',
+        solution: 'The concept focuses on a smarter system that identifies and supports better material recovery.',
+        role: 'I contributed to research, concept explanation, business thinking, and portfolio presentation.',
+        tools: ['Research', 'Sustainability', 'Concept Design', 'Business Thinking'],
         links: [
             { label: 'View on Drieam', url: 'https://portfolio.drieam.app/s/GuxUr36X/8whNgDeemrG7FMAydgWiW9MG' }
         ]
     },
     'ludo-game': {
         title: 'Ludo Rush - Digital Board Game',
-        overview: 'A browser-based Ludo game with complete game engine.',
-        problem: 'Creating a faithful digital recreation of classic Ludo.',
-        solution: 'Game logic for dice rolls, token movement, capturing, and win conditions.',
-        role: 'Sole developer - game logic, UI, design, testing.',
-        tools: ['HTML5', 'CSS3', 'JavaScript', 'Game Logic'],
+        overview: 'Ludo Rush is a fully interactive, browser-based Ludo game built with HTML, CSS, and JavaScript. It features a complete game engine, turn-based mechanics, and a clean, responsive interface.',
+        problem: 'The goal was to create a faithful digital recreation of the classic Ludo board game that is fun, intuitive, and bug-free.',
+        solution: 'I developed a complete game logic system to handle dice rolls, token movement, collision detection, capturing, safe zones, and win conditions.',
+        role: 'I was the sole developer, responsible for all aspects: game logic, user interface, design, sound integration, and testing.',
+        tools: ['HTML5', 'CSS3', 'JavaScript', 'Game Logic', 'Audio API'],
         links: [
             { label: 'Play Ludo Game', url: 'https://yazanfattal.github.io/ludo-game/?v=3' }
         ]
     }
 };
 
+
 function openProjectModal(projectId) {
     const project = projectDetails[projectId];
     if (!project) return;
-
-    const linksHTML = project.links.map(link => 
-        `<a href="${link.url}" target="_blank" class="external-link-btn" style="margin-top: 8px;">${link.label} →</a>`
+    modalTrigger = document.activeElement;
+    const linksHTML = project.links.map(link =>
+        `<a href="${link.url}" target="_blank" rel="noopener noreferrer" class="external-link-btn">${link.label} →</a>`
     ).join('');
-
     modalBody.innerHTML = `
-        <h2 class="modal-project-title">${project.title}</h2>
+        <h2 id="modal-title" class="modal-project-title">${project.title}</h2>
         <div class="modal-section"><h4>📖 Overview</h4><p>${project.overview}</p></div>
         <div class="modal-section"><h4>📋 Problem</h4><p>${project.problem}</p></div>
         <div class="modal-section"><h4>💡 Solution</h4><p>${project.solution}</p></div>
@@ -260,27 +104,61 @@ function openProjectModal(projectId) {
         <div class="modal-section"><h4>🛠️ Tools & Skills</h4><ul>${project.tools.map(tool => `<li>${tool}</li>`).join('')}</ul></div>
         <div class="modal-section"><h4>🔗 Links</h4>${linksHTML}</div>
     `;
-    modal.style.display = 'block';
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden', 'false');
+    document.querySelector('main').inert = true;
+    document.querySelector('header').inert = true;
+    document.querySelector('nav').inert = true;
     document.body.style.overflow = 'hidden';
+    document.querySelector('.modal-content').scrollTop = 0;
+    closeModalBtn.focus();
 }
 
-if (closeModalBtn) {
-    closeModalBtn.addEventListener('click', () => {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
+function closeProjectModal() {
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden', 'true');
+    document.querySelector('main').inert = false;
+    document.querySelector('header').inert = false;
+    document.querySelector('nav').inert = false;
+    document.body.style.overflow = '';
+    if (modalTrigger) modalTrigger.focus({ preventScroll: true });
 }
 
-window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
+closeModalBtn.addEventListener('click', closeProjectModal);
+modal.addEventListener('click', event => {
+    if (event.target === modal) closeProjectModal();
+});
+document.addEventListener('keydown', event => {
+    if (modal.getAttribute('aria-hidden') === 'true') return;
+    if (event.key === 'Escape') closeProjectModal();
+    if (event.key === 'Tab') {
+        const items = [...modal.querySelectorAll('button, a[href]')];
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+        }
     }
 });
 
-window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.style.display === 'block') {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-});
+// Keep the active navigation item aligned with the section in view.
+const navLinks = document.querySelectorAll('nav ul a');
+if ('IntersectionObserver' in window) {
+    const sectionObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            navLinks.forEach(link => {
+                if (link.hash === '#' + entry.target.id) {
+                    link.setAttribute('aria-current', 'location');
+                } else {
+                    link.removeAttribute('aria-current');
+                }
+            });
+        });
+    }, { rootMargin: '-15% 0px -65% 0px', threshold: 0 });
+    document.querySelectorAll('main > section').forEach(section => sectionObserver.observe(section));
+}

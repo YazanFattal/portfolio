@@ -1,47 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#102b46">
+    <meta name="description" content="Yazan Fattal — Media Design &amp; ICT Student. Explore my journey, design projects, and interactive work.">
     <title>Yazan Fattal | Media Design Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="./style.css?v=20261006-navy">
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
 </head>
 <body>
-
-<nav>
+<a class="skip-link" href="#main-content">Skip to content</a>
+<nav aria-label="Main navigation">
     <div class="nav-container">
-        <div class="logo">YF</div>
+        <a class="logo" href="#top" aria-label="Yazan Fattal, home">YF</a>
         <ul>
             <li><a href="#about">Journey</a></li>
             <li><a href="#projects">Work</a></li>
             <li><a href="#contact">Connect</a></li>
         </ul>
-        <button id="theme-switch" class="theme-btn">
-            <span class="light-icon">☀️</span>
-            <span class="dark-icon">🌙</span>
-        </button>
     </div>
 </nav>
 
-<header>
+<header id="top">
     <div class="header-content">
         <div class="profile-wrapper">
-            <img src="./me.JPG" alt="Yazan Fattal" class="profile-pic">
+            <img src="./me.JPG" alt="Yazan Fattal" class="profile-pic" width="320" height="380" fetchpriority="high">
             <div class="profile-glow"></div>
         </div>
         <h1>Yazan Fattal</h1>
-        <p>Media Design & ICT Student</p>
+        <p>Media Design &amp; ICT Student</p>
         <div class="header-badge">Available for internships</div>
     </div>
 </header>
 
+<main id="main-content">
 <section id="about">
     <h2>My Journey</h2>
     <p class="section-subtitle">From Damascus to Eindhoven — a journey of growth, discovery, and design.</p>
 
-    <div class="journey-map-container fade-in">
+    <div class="journey-map-container fade-in show">
         <div class="map-header">
             <div class="map-title">My Path Across Continents</div>
             <div class="total-distance">Total traveled: <strong>5,900+ km</strong></div>
@@ -91,7 +89,7 @@
                     <h3>Eindhoven</h3>
                     <p class="pin-country">Netherlands</p>
                     <p class="pin-year">2019 - Present</p>
-                    <p class="pin-description">Studying Media Design & ICT and building projects with purpose.</p>
+                    <p class="pin-description">Studying Media Design &amp; ICT and building projects with purpose.</p>
                     <div class="pin-distance">+380 km</div>
                     <div class="current-badge">📍 Current Location</div>
                 </div>
@@ -112,21 +110,21 @@
     <p class="section-subtitle">A selection of projects where I explored design, interaction, and problem-solving.</p>
 
     <div class="filter-tabs">
-        <button class="filter-btn active" data-filter="all">All Projects</button>
-        <button class="filter-btn" data-filter="game">Games</button>
-        <button class="filter-btn" data-filter="app">Apps & UX</button>
+        <button class="filter-btn active" type="button" aria-pressed="true" data-filter="all">All Projects</button>
+        <button class="filter-btn" type="button" aria-pressed="false" data-filter="game">Games</button>
+        <button class="filter-btn" type="button" aria-pressed="false" data-filter="app">Apps &amp; UX</button>
     </div>
 
     <div class="projects-grid" id="projects-grid">
 
         <!-- PROJECT 1 - CROW STUDIO -->
-        <div class="project-card fade-in" data-category="game">
+        <div class="project-card fade-in show" data-category="game">
             <div class="project-number">01</div>
-            <div class="project-year">2025</div>
+            <div class="project-year">2026</div>
             <div class="project-visual project-bg">
-                <img src="logo.svg" alt="Crow Studio Logo" class="project-logo" onerror="this.style.display='none'">
+                <img src="./logo.svg" alt="Crow Studio Logo" class="project-logo" loading="lazy" onerror="this.style.display=&#39;none&#39;">
                 <h3>Kauwe Bende</h3>
-                <p>UNO-style icebreaker game</p>
+                <p>Icebreaker game</p>
             </div>
             <div class="project-info">
                 <h3>Crow Studio</h3>
@@ -136,19 +134,19 @@
                     <span>Social Connection</span>
                     <span>UX Research</span>
                 </div>
-                <button onclick="openProjectModal('crow-studio')" class="read-more-btn">View Case Study →</button>
-                <a href="https://portfolio.drieam.app/s/GuxUr36X/XNCJf29o6wbf2U2pjP8s2aYC" target="_blank" class="external-link-btn">View on Drieam →</a>
-                <a href="https://yazanfattal.github.io/kauweBende/" target="_blank" class="external-link-btn">Play Desktop →</a>
-                <a href="https://yazanfattal.github.io/kauweBendeMobileVersion/" target="_blank" class="external-link-btn">Play Mobile →</a>
+                <button onclick="openProjectModal(&#39;crow-studio&#39;)" class="read-more-btn">View Case Study →</button>
+                <a href="https://portfolio.drieam.app/s/GuxUr36X/aPteEujTGkibwbFfhiR2MAy7" target="_blank" rel="noopener noreferrer" class="external-link-btn">View on Drieam →</a>
+                <a href="https://yazanfattal.github.io/kauweBende/" target="_blank" rel="noopener noreferrer" class="external-link-btn">Play Desktop →</a>
+                <a href="https://yazanfattal.github.io/kauweBendeMobileVersion/" target="_blank" rel="noopener noreferrer" class="external-link-btn">Play Mobile →</a>
             </div>
         </div>
 
         <!-- PROJECT 2 - SMART MOBILE -->
-        <div class="project-card fade-in" data-category="app">
+        <div class="project-card fade-in show" data-category="app">
             <div class="project-number">02</div>
             <div class="project-year">2023</div>
             <div class="project-visual project-bg">
-                <img src="fontys.jpg" alt="Smart Mobile Logo" class="project-logo" onerror="this.style.display='none'">
+                <img src="./fontys.jpg" alt="Smart Mobile Logo" class="project-logo" loading="lazy" onerror="this.style.display=&#39;none&#39;">
                 <h3>Smart Mobile</h3>
                 <p>Three app concepts</p>
             </div>
@@ -160,39 +158,39 @@
                     <span>UX/UI</span>
                     <span>Mobile Design</span>
                 </div>
-                <button onclick="openProjectModal('smart-mobile')" class="read-more-btn">View Case Study →</button>
-                <a href="https://portfolio.drieam.app/s/GuxUr36X/JVrign45XBMhA39RpCg93KWe" target="_blank" class="external-link-btn">View on Drieam →</a>
+                <button onclick="openProjectModal(&#39;smart-mobile&#39;)" class="read-more-btn">View Case Study →</button>
+                <a href="https://portfolio.drieam.app/s/GuxUr36X/JVrign45XBMhA39RpCg93KWe" target="_blank" rel="noopener noreferrer" class="external-link-btn">View on Drieam →</a>
             </div>
         </div>
 
         <!-- PROJECT 3 - CATCHEE -->
-        <div class="project-card fade-in" data-category="app">
+        <div class="project-card fade-in show" data-category="app">
             <div class="project-number">03</div>
             <div class="project-year">2025</div>
             <div class="project-visual project-bg">
-                <img src="catchee.png" alt="Catchee Logo" class="project-logo" onerror="this.style.display='none'">
+                <img src="./catchee.png" alt="Catchee Logo" class="project-logo" loading="lazy" onerror="this.style.display=&#39;none&#39;">
                 <h3>Catchee</h3>
-                <p>Speed-meet Q&A game</p>
+                <p>Speed-meet Q&amp;A game</p>
             </div>
             <div class="project-info">
                 <h3>Catchee</h3>
                 <p>A speed-meet experience that helps people connect through timed questions and playful interaction.</p>
                 <div class="project-tags">
                     <span>Social Impact</span>
-                    <span>Q&A Game</span>
+                    <span>Q&amp;A Game</span>
                     <span>Figma</span>
                 </div>
-                <button onclick="openProjectModal('catchee')" class="read-more-btn">View Case Study →</button>
-                <a href="https://www.youtube.com/watch?v=tyR4OhImVRY" target="_blank" class="external-link-btn">Watch Demo →</a>
+                <button onclick="openProjectModal(&#39;catchee&#39;)" class="read-more-btn">View Case Study →</button>
+                <a href="https://www.youtube.com/watch?v=tyR4OhImVRY" target="_blank" rel="noopener noreferrer" class="external-link-btn">Watch Demo →</a>
             </div>
         </div>
 
         <!-- PROJECT 4 - TOMRA -->
-        <div class="project-card fade-in" data-category="app">
+        <div class="project-card fade-in show" data-category="app">
             <div class="project-number">04</div>
             <div class="project-year">2024</div>
             <div class="project-visual project-bg">
-                <img src="tomra.jpeg" alt="Tomra Logo" class="project-logo" onerror="this.style.display='none'">
+                <img src="./tomra.jpeg" alt="Tomra Logo" class="project-logo" loading="lazy" onerror="this.style.display=&#39;none&#39;">
                 <h3>Tomra</h3>
                 <p>Smart recycling system</p>
             </div>
@@ -204,15 +202,15 @@
                     <span>Business</span>
                     <span>Circular Economy</span>
                 </div>
-                <button onclick="openProjectModal('tomra')" class="read-more-btn">View Case Study →</button>
-                <a href="https://portfolio.drieam.app/s/GuxUr36X/8whNgDeemrG7FMAydgWiW9MG" target="_blank" class="external-link-btn">View on Drieam →</a>
+                <button onclick="openProjectModal(&#39;tomra&#39;)" class="read-more-btn">View Case Study →</button>
+                <a href="https://portfolio.drieam.app/s/GuxUr36X/8whNgDeemrG7FMAydgWiW9MG" target="_blank" rel="noopener noreferrer" class="external-link-btn">View on Drieam →</a>
             </div>
         </div>
 
         <!-- PROJECT 5 - LUDO GAME -->
         <div class="project-card fade-in" data-category="game">
             <div class="project-number">05</div>
-            <div class="project-year">2025</div>
+            <div class="project-year">2026</div>
             <div class="project-visual project-bg">
                 <div class="project-emoji">🎲</div>
                 <h3>Ludo Rush</h3>
@@ -226,19 +224,19 @@
                     <span>JavaScript</span>
                     <span>Interactive</span>
                 </div>
-                <button onclick="openProjectModal('ludo-game')" class="read-more-btn">View Case Study →</button>
-                <a href="https://yazanfattal.github.io/ludo-game/?v=3" target="_blank" class="external-link-btn">Play Ludo Game →</a>
+                <button onclick="openProjectModal(&#39;ludo-game&#39;)" class="read-more-btn">View Case Study →</button>
+                <a href="https://yazanfattal.github.io/ludo-game/?v=3" target="_blank" rel="noopener noreferrer" class="external-link-btn">Play Ludo Game →</a>
             </div>
         </div>
 
         <!-- PROJECT 6 - BREAKDOWN -->
         <div class="project-card fade-in" data-category="game">
             <div class="project-number">06</div>
-            <div class="project-year">2025</div>
+            <div class="project-year">2026</div>
             <div class="project-visual project-bg">
                 <div class="project-emoji">💥</div>
                 <h3>Breakdown</h3>
-                <p>Glass prototype & interaction</p>
+                <p>Glass prototype &amp; interaction</p>
             </div>
             <div class="project-info">
                 <h3>Breakdown</h3>
@@ -248,33 +246,33 @@
                     <span>Prototyping</span>
                     <span>Interaction</span>
                 </div>
-                <a href="https://yazanfattal.github.io/breakdown/" target="_blank" class="external-link-btn">View Project →</a>
+                <a href="https://yazanfattal.github.io/breakdown/" target="_blank" rel="noopener noreferrer" class="external-link-btn">View Project →</a>
             </div>
         </div>
 
         <!-- PROJECT 7 - WC26 PREDICTOR -->
         <div class="project-card fade-in" data-category="game">
             <div class="project-number">07</div>
-            <div class="project-year">2025</div>
+            <div class="project-year">2026</div>
             <div class="project-visual project-bg">
-                <img src="wk.png" alt="World Cup Logo" class="project-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                <img src="./wk.png" alt="World Cup Logo" class="project-logo" loading="lazy" onerror="this.style.display=&#39;none&#39;; this.nextElementSibling.style.display=&#39;block&#39;">
                 <div class="project-emoji" style="display: none;">🏆</div>
                 <h3>WC26 Predictor</h3>
                 <p>Tournament predictor</p>
             </div>
             <div class="project-info">
                 <h3>FIFA World Cup 26 Predictor</h3>
-                <p>An interactive tournament predictor for the 2026 World Cup.</p>
+                <p>An interactive tournament predictor for the 2026 World Cup. Predict group winners, simulate knockout matches, and crown your champion.</p>
                 <div class="project-tags">
                     <span>JavaScript</span>
                     <span>Interactive</span>
                     <span>Data Viz</span>
                 </div>
-                <a href="https://yazanfattal.github.io/wc26-predictor/" target="_blank" class="external-link-btn">Make Your Predictions →</a>
+                <a href="https://yazanfattal.github.io/wc26-predictor/" target="_blank" rel="noopener noreferrer" class="external-link-btn">Make Your Predictions →</a>
             </div>
         </div>
 
-        <!-- PROJECT 8 - CAR CATALOGUE -->
+        <!-- PROJECT 8 - CAR CATALOGUE (NEW) -->
         <div class="project-card fade-in" data-category="app">
             <div class="project-number">08</div>
             <div class="project-year">2025</div>
@@ -285,22 +283,23 @@
             </div>
             <div class="project-info">
                 <h3>Car Catalogue</h3>
-                <p>An interactive catalog to explore car brands from the USA, Europe, and Asia.</p>
+                <p>An interactive catalog to explore car brands from the USA, Europe, and Asia. Browse through a clean, region-based interface.</p>
                 <div class="project-tags">
                     <span>JavaScript</span>
                     <span>Catalog</span>
                     <span>Interactive</span>
                 </div>
-                <a href="https://yazanfattal.github.io/car-catalogue/" target="_blank" class="external-link-btn">Explore Car Catalogue →</a>
+                <a href="https://yazanfattal.github.io/car-catalogue/" target="_blank" rel="noopener noreferrer" class="external-link-btn">Explore Car Catalogue →</a>
             </div>
         </div>
+
 
         <!-- PROJECT 9 - UBER SALARY CALCULATOR -->
         <div class="project-card fade-in" data-category="app">
             <div class="project-number">09</div>
             <div class="project-year">2025</div>
             <div class="project-visual project-bg">
-                <img src="uber-icon.png" alt="Uber Salary Calculator Icon" class="project-logo">
+                <img src="uber-icon.png" alt="Uber Salary Calculator Icon" class="project-logo" loading="lazy">
                 <h3>Uber Salary Calculator</h3>
                 <p>Estimate daily earnings</p>
             </div>
@@ -312,7 +311,7 @@
                     <span>Calculator</span>
                     <span>Utility</span>
                 </div>
-                <a href="https://yazanfattal.github.io/uber-salary-calculator/" target="_blank" class="external-link-btn">Calculate Earnings →</a>
+                <a href="https://yazanfattal.github.io/uber-salary-calculator/" target="_blank" rel="noopener noreferrer" class="external-link-btn">Calculate Earnings →</a>
             </div>
         </div>
 
@@ -321,7 +320,7 @@
             <div class="project-number">10</div>
             <div class="project-year">2025</div>
             <div class="project-visual project-bg">
-                <img src="the-obedient-preview.png" alt="The Obedient Logo" class="project-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
+                <img src="the-obedient-preview.png" alt="The Obedient Logo" class="project-logo" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
                 <div class="project-emoji" style="display: none;">🏛️</div>
                 <h3>The Obedient</h3>
                 <p>Digital National Archive</p>
@@ -334,7 +333,7 @@
                     <span>Archive</span>
                     <span>Interactive</span>
                 </div>
-                <a href="https://yazanfattal.github.io/the-obedient/" target="_blank" class="external-link-btn">Explore The Obedient →</a>
+                <a href="https://yazanfattal.github.io/the-obedient/" target="_blank" rel="noopener noreferrer" class="external-link-btn">Explore The Obedient →</a>
             </div>
         </div>
 
@@ -344,7 +343,7 @@
 <section id="contact" class="contact-section">
     <div class="contact-container">
         <div class="contact-header">
-            <span class="contact-badge">Available for internships & creative work</span>
+            <span class="contact-badge">Available for internships &amp; creative work</span>
             <h2>Let's Connect</h2>
             <p>Interested in my work, collaborations, internships, or just want to say hi?<br>Feel free to reach out — I'd love to hear from you.</p>
         </div>
@@ -362,9 +361,9 @@
                 <h3>Social</h3>
                 <p>Connect and follow my work</p>
                 <div class="social-icons">
-                    <a href="https://github.com/YazanFattal" target="_blank" class="social-icon-link">GitHub</a>
-                    <a href="https://linkedin.com/in/yazan-fattal-8b25b21b9" target="_blank" class="social-icon-link">LinkedIn</a>
-                    <a href="https://youtube.com/@Yazan.Design" target="_blank" class="social-icon-link">YouTube</a>
+                    <a href="https://github.com/YazanFattal" target="_blank" rel="noopener noreferrer" class="social-icon-link">GitHub</a>
+                    <a href="https://linkedin.com/in/yazan-fattal-8b25b21b9" target="_blank" rel="noopener noreferrer" class="social-icon-link">LinkedIn</a>
+                    <a href="https://youtube.com/@Yazan.Design" target="_blank" rel="noopener noreferrer" class="social-icon-link">YouTube</a>
                 </div>
             </div>
 
@@ -377,19 +376,21 @@
         </div>
 
         <div class="contact-footer">
-            <p>© 2025 Yazan Fattal — Media Design & ICT Student</p>
+            <p>© 2025 Yazan Fattal — Media Design &amp; ICT Student</p>
         </div>
     </div>
 </section>
 
+</main>
+
 <!-- Modal -->
-<div id="projectModal" class="modal">
+<div id="projectModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true" tabindex="-1">
     <div class="modal-content">
-        <span class="close-modal">&times;</span>
+        <button type="button" class="close-modal" aria-label="Close case study">×</button>
         <div id="modal-body"></div>
     </div>
 </div>
 
-<script src="script.js"></script>
+<script src="./script.js?v=20261006-navy"></script>
 </body>
 </html>
