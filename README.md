@@ -1,7 +1,5 @@
 # Yazan Fattal — Portfolio XP
 
-Open `index.html` in a browser. If you downloaded the ZIP, extract it first. No build step is required.
-
 The desktop contains 21 project shortcuts, the About and Contact windows, a searchable project folder, and a Start menu. Open a shortcut with a click, tap, or the Enter key. Window controls minimize, maximize, and close it. On a large screen you can drag its title bar.
 
 Projects with a playable web version offer **Launch in window** and a separate link. Keystroke and Doodle3D have bundled demos; other hosted projects need an internet connection. The 4FUTURE shortcut links to the verified public prototype. The separate private edition is described but not included.
