@@ -267,7 +267,7 @@ const PROJECTS = [
     "links": [
       [
         "Plan a trip",
-        "https://byebye-budget-trips.agencybyebye.chatgpt.site/"
+        "https://yazanfattal.github.io/byebye-budget-trips/"
       ]
     ],
     "demo": "https://yazanfattal.github.io/byebye-budget-trips/",
@@ -471,22 +471,23 @@ const PROJECTS = [
     "demo": "https://yazanfattal.github.io/two-worlds/"
   },
   {
-    "id": "not-a-cookbook",
-    "name": "Not a Cookbook",
+    "id": "disc-archive",
+    "name": "Disc Archive",
     "category": "Apps",
-    "icon": "🍲",
-    "summary": "An Android coursework project exploring a recipe app that identifies ingredients from photos of meals.",
+    "year": "2026",
+    "icon": "disc-archive.svg",
+    "summary": "Browse original cover art and game profiles for 300 classics across PlayStation, PlayStation 2, and Xbox 360.",
     "tags": [
-      "Android",
-      "Coursework",
-      "Recipe App"
+      "Retro Gaming",
+      "Digital Archive",
+      "Cover Art"
     ],
     "links": [
       [
-        "View source on GitHub",
-        "https://github.com/YazanFattal/TechCase12_NotCookBook"
+        "Browse Disc Archive",
+        "https://yazanfattal.github.io/disc-archive/"
       ]
     ],
-    "status": "Source code · Android coursework"
+    "demo": "https://yazanfattal.github.io/disc-archive/"
   }
 ];
