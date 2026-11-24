@@ -402,7 +402,7 @@ const PROJECTS = [
         "https://yazanfattal.github.io/hat-hunt/"
       ]
     ],
-    "demo": "https://yazanfattal.github.io/hat-hunt/",
+    "demo": "https://yazanfattal.github.io/hat-hunt/?v=4",
     "status": null,
     "details": null
   },
